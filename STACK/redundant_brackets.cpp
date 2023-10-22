@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool find_Redundant_Brackets(string & s)
+{
+    stack<char> st;
+    for(int i=0;i<s.length();++i)
+    {
+        char ch=s[i];
+
+        if(ch=='(' || ch=='+' || ch=='-' || ch=='*' || ch=='/')
+        {
+            st.push(ch);
+        }else{
+            if(ch==')')
+            {
+                bool isRedundant=true;
+                while(st.top()!='(')
+                {
+                    char top= st.top();
+                    if(top=='+' || top=='-' || top=='*' || top=='/')
+                    {
+                        isRedundant=false;
+                    }
+                    st.pop();
+                }
+                if(isRedundant==true)
+                {
+                    return true;
+                }
+                st.pop();
+            }
+        }
+    }
+    return false;
+}
+
+
+int main()
+{
+    string expression;
+    cout << "Enter an arithmetic expression: ";
+    cin >> expression;
+
+    if (find_Redundant_Brackets(expression))
+    {
+        cout << "Redundant brackets found in the expression." << endl;
+    }
+    else
+    {
+        cout << "No redundant brackets found in the expression." << endl;
+    }
+
+    return 0;
+}
