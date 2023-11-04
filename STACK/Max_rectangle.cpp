@@ -1,34 +1,3 @@
-//not completed yet  //not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet   completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-//not completed yet
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -116,8 +85,7 @@ int maxArea(vector<vector<int>>& mat,int n,int m)
             if(mat[i][j]==1) height[j]++;
             else height[j]=0; 
         }
-        int area_=MAH(height,m);
-        maxarea=max(area_,maxarea);
+        maxarea=max(MAH(height,m),maxarea);
     }
     return maxarea;
 }
