@@ -66,6 +66,15 @@ public:
             return arr[f];
         }
     }
+
+    void display()
+    {
+        for(int i=f;i<r+1;i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+    }
 };
 
 int main() {
@@ -95,6 +104,8 @@ int main() {
     } else {
         cout << "Queue is not empty." << endl;
     }
+
+    myQueue.display();
 
     return 0;
 }

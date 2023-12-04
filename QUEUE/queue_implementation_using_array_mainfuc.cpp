@@ -5,7 +5,7 @@ int main()
 {
     int size = 99999;
     int Q[size];
-    int f = 0, r = 0;
+    int f = -1, r = -1;
     int choice, data;
     do
     {
@@ -17,16 +17,27 @@ int main()
         switch (press)
         {
         case 1:
-            if (r == size)
+            if (r == size - 1)
             {
                 cout << "Q is full" << endl;
             }
             else
             {
-                cout << "enter the element" << endl;
-                cin >> data;
-                Q[r] = data;
-                r++;
+                if (f == -1 && r == -1)
+                {
+                    cout << "enter the elemenet you want to insert" << endl;
+                    cin >> data;
+                    r = 0;
+                    f = 0;
+                    Q[r] = data;
+                }
+                else
+                {
+                    cout << "enter the elemenet you want to insert" << endl;
+                    cin >> data;
+                    r++;
+                    Q[r] = data;
+                }
             }
             break;
         case 2:
@@ -58,7 +69,7 @@ int main()
                 {
                     cout << " " << Q[i];
                 }
-                cout<<endl;
+                cout << endl;
             }
             break;
         default:
