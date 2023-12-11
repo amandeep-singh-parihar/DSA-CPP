@@ -24,7 +24,7 @@ public:
     {
         node *temp = new node(data);
 
-        if (r == nullptr)
+        if (r == NULL)
         {
             f = r = temp;
             return;
@@ -54,15 +54,14 @@ public:
 
     void display()
     {
-        node *p =f;
+        node *p = f;
 
-        while(p!=NULL)
+        while (p != NULL)
         {
-            cout<<p->data<<" ";
-            p=p->next;
+            cout << p->data << " ";
+            p = p->next;
         }
-        cout<<endl;
-        
+        cout << endl;
     }
 };
 
@@ -79,7 +78,7 @@ int main()
     q.dequeue();
     cout << "Queue Front : " << ((q.f != NULL) ? (q.f)->data : -1) << endl;
     cout << "Queue Rear : " << ((q.r != NULL) ? (q.r)->data : -1);
-    cout<<"___________________________"<<endl;
+    cout << "___________________________" << endl;
     q.display();
     return 0;
 }

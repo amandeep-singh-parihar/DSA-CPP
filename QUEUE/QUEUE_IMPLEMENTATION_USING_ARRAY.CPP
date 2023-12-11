@@ -20,7 +20,7 @@ public:
 
     bool isEmpty()
     {
-        return f==r;
+        return f == r;
     }
 
     void enqueue(int data)
@@ -69,15 +69,16 @@ public:
 
     void display()
     {
-        for(int i=f;i<r+1;i++)
+        for (int i = f; i < r + 1; i++)
         {
-            cout<<arr[i]<<" ";
+            cout << arr[i] << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
 };
 
-int main() {
+int main()
+{
     // Create a Queue object
     Queue myQueue;
 
@@ -86,7 +87,6 @@ int main() {
     myQueue.enqueue(2310);
     myQueue.enqueue(3150);
     myQueue.enqueue(3100);
-
 
     // Display the front element
     cout << "Front element: " << myQueue.front() << endl;
@@ -99,9 +99,12 @@ int main() {
     cout << "front element: " << myQueue.front() << endl;
 
     // Check if the queue is empty
-    if (myQueue.isEmpty()) {
+    if (myQueue.isEmpty())
+    {
         cout << "Queue is empty." << endl;
-    } else {
+    }
+    else
+    {
         cout << "Queue is not empty." << endl;
     }
 
