@@ -1,3 +1,3 @@
 # DSA-CPP
-here i found my all the codes which i learn during the DSA cpp
+HERE I FOUND MY ALL THE CODES WHICH I LEARN DURING THE DSA Cpp
 wohooo! let's go.
