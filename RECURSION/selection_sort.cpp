@@ -17,6 +17,9 @@ void selectionSORT(int arr[],int beginIndex,int size)
     }
     swap(arr[beginIndex],arr[minIndex]);
 
+
+    
+
     selectionSORT(arr,beginIndex+1,size);
 
 

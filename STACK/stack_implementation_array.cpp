@@ -28,7 +28,6 @@ public:
             cout << "Stack overflow " << endl;
         }
     }
-
     void pop()
     {
         if (top >= 0)
@@ -40,7 +39,6 @@ public:
             cout << "Stack underflow " << endl;
         }
     }
-
     int peek()
     {
         if (top >= 0)
@@ -53,7 +51,6 @@ public:
             return -1;
         }
     }
-
     bool isEmpty()
     {
         if (top == -1)
