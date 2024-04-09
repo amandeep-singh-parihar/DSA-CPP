@@ -2,27 +2,28 @@
 //that is present in the array twice . your task is to find the duplicate integer in the array.
 //the numbers must be between 0 to size-1
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-int duplicate(int arr[],int size)
+
+int duplicate(int arr[],int n)
 {
     int ans=0;
-    for(int i=0;i<size;i++)
+    for(int i=0;i<n;i++)
     {
         ans=ans^arr[i];
     }
 
-    for(int i=1;i<size;i++)
+    for(int i=1;i<n;i++)
     {
         ans=ans^i;
     }
+
     return ans;
 }
 
-
 int main()
 {
-    int arr[7]={1,6,4,2,3,5,4}; // output ---> 4
-    cout<<duplicate(arr,7);
+    int arr[9]={1,2,3,4,5,6,7,8,8};
+    cout<<duplicate(arr,9);
     return 0;
 }

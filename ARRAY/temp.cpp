@@ -74,6 +74,21 @@ void insertATposition(node *&tail, node *&head, int position, int d)
     p->next = nodeTOinsert;
 }
 
+void selectAlternate(node*& head) {
+    if (head == nullptr || head->next == nullptr) {
+        return; // No or only one element in the list
+    }
+
+    node* current = head;
+
+    while (current != nullptr && current->next != nullptr) {
+        node* nextNode = current->next;
+        current->next = nextNode->next;
+        delete nextNode; // Free memory of skipped node
+        current = current->next; // Move to the next node
+    }
+}
+
 void print(node *&head)
 {
     node *p = head;
@@ -106,6 +121,9 @@ int main()
 
     cout << "head " << head->data << endl;
     cout << "tail " << tail->data << endl;
+
+    selectAlternate(head);
+    print(head);
 
     return 0;
 }

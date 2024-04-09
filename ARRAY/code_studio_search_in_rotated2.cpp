@@ -6,29 +6,28 @@ using namespace std;
 int search(int arr[],int size,int key)
 {
     int s=0,e=size-1;
-    int mid=s+(e-s)/2;
     while(s<=e)
     {
+        int mid=s+(e-s)/2;
         if(arr[mid]==key) return mid;
 
-        if(arr[s]<=arr[mid])
+        if(arr[s]<=arr[mid])//going into the right sorted part
         {
-            if(key>=arr[s] && key<arr[mid])
+            if(arr[s]<=key && key<arr[mid])
             {
                 e=mid-1;
             }else{
                 s=mid+1;
             }
         }
-        else{
-            if(key<=arr[e] && key>arr[mid])
+        else{//going into the left sortd part
+            if(arr[mid]<key && key<=arr[e])
             {
                 s=mid+1;
             }else{
                 e=mid-1;
             }
         }
-        mid=s+(e-s)/2;
     }
     return -1;
 }
@@ -39,6 +38,6 @@ int main()
     int key;
     cout<<"Enter the element you want to search # ";
     cin>>key;
-    cout<<"Index of the "<<key<<" # "<<search(arr,7,key);
+    cout<<"Index of the "<<key<<" is "<<search(arr,7,key);
     return 0;
 }

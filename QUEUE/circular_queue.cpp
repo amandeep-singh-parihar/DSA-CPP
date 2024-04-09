@@ -47,7 +47,7 @@ public:
             throw exception();
         }
         int result = arr[front];
-        if (front == rear)
+        if (front == rear)//it means that is the first element and after deque the queue will be empty
         {
             front = rear = -1;
         }

@@ -1,46 +1,42 @@
-//********************************************SEARCH IN ROTATED SORTED ARRAY*****************************************************
-
 #include <bits/stdc++.h>
 using namespace std;
 
 int getPivot(int arr[], int size)
 {
-    int start = 0, end = size - 1;
-    while (start < end)
+    int s = 0, e = size - 1;
+    while (s < e)
     {
-        int mid = start + (end - start) / 2;
+        int mid = s + (e - s) / 2;
         if (arr[mid] >= arr[0])
         {
-            start = mid + 1;
+            s = mid + 1;
         }
         else
         {
-            end = mid;
+            e = mid;
         }
-        // mid = start + (end - start) / 2;
     }
-    return end;
+    return e;
 }
 
-int binarySearch(int arr[], int start, int end, int size, int key)
+int binarySearch(int arr[], int s, int e, int size, int key)
 {
-    while (start <= end)
+    // s=0,e=size-1;
+    while (s <= e)
     {
-        int mid = start + (end - start) / 2;
+        int mid = s + (e - s) / 2;
         if (arr[mid] == key)
         {
             return mid;
         }
-
         if (key > arr[mid])
         {
-            start = mid + 1;
+            s = mid + 1;
         }
         else
         {
-            end = mid - 1;
+            e = mid - 1;
         }
-        // mid = start + (end - start) / 2;
     }
     return -1;
 }
@@ -63,6 +59,8 @@ int main()
     int arr[5] = {5, 6, 1, 2, 4};
     int key;
     cin >> key;
+
     cout << findPos(arr, 5, key);
+
     return 0;
 }

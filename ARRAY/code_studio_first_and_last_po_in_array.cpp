@@ -1,3 +1,6 @@
+/*find first and last position of a number in the given array which comes more than one*/
+//the array must be in the ascending order
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -51,7 +54,7 @@ int main()
 
     vector<int> result = searchRange(nums, target);
 
-    cout<<"["<<result[0]<<","<<result[1]<<"]"<<endl;
+    cout << "[" << result[0] << "," << result[1] << "]" << endl;
 
     return 0;
 }
