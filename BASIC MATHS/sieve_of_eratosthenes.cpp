@@ -16,7 +16,7 @@ int countPrime(int n)
         {
             cnt++;
 
-            for(int j=2*i;j<=n;j=j+i)
+            for(int j=2*i;j<=n;j+=i)
             {
                 prime[j]=false;
             }
