@@ -1,20 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int calcGCD(int n, int m)
+int removeDuplicates(vector<int> &nums)
 {
-    while (m != 0)
+    set<int> st;
+    for (int i = 0; i < nums.size(); i++)
     {
-        int temp = m;
-        m = n % m;
-        n = temp;
+        st.insert(nums[i]);
     }
-    return n;
+
+    int index = 0;
+    for (auto it : st)
+    {
+        nums[index] = it;
+        index++;
+    }
+    return index;
 }
 
 int main()
 {
-    cout<<calcGCD(15,6)<<endl;
-    // cout<<5/3;
+    vector<int> nums = {1,1,2};
+    cout << removeDuplicates(nums);
     return 0;
 }
