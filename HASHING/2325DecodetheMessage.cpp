@@ -19,6 +19,7 @@ string decodeMessage(string key, string message)
         if (it != ' ')
         {
             ans += string(1, mp[it]);
+            // string(1,mp[it]) it is just creating the string object containing single charter
         }
         else
         {
