@@ -1,8 +1,10 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int binarySearchRecursive(int arr[], int start, int end, int key) {
-    if (start <= end) {
+int binarySearchRecursive(int arr[], int start, int end, int key)
+{
+    if (start <= end)
+    {
         int mid = start + (end - start) / 2;
 
         if (arr[mid] == key)
@@ -16,12 +18,14 @@ int binarySearchRecursive(int arr[], int start, int end, int key) {
     return -1; // If element not found
 }
 
-int binarySearch(int arr[], int size, int key) {
+int binarySearch(int arr[], int size, int key)
+{
     return binarySearchRecursive(arr, 0, size - 1, key);
 }
 
-int main() {
-    int even[6] = {2,4,6,8,12,18};
+int main()
+{
+    int even[6] = {2, 4, 6, 8, 12, 18};
     int odd[5] = {3, 8, 11, 14, 16};
 
     int evenIndex = binarySearch(even, 6, 6);

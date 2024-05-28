@@ -50,7 +50,7 @@ int main()
     cout << "Enter the number # ";
     cin >> num;
     int integer_part = binarySearch(num);
-    //cout<<tempsol;
+    // cout<<tempsol;
     cout << "Square root of " << num << " # " << morePre(num, 3, integer_part);
     return 0;
 }

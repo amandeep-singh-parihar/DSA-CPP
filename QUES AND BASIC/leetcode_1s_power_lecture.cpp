@@ -2,29 +2,29 @@
 
 For example, The integer 5 is "101" in binary and its complement is "010" which is the integer 2.
 */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 int main()
 {
     int n;
-    cin>>n;
-    int m=n;
-    int mask=0;
-    if(n==0)
+    cin >> n;
+    int m = n;
+    int mask = 0;
+    if (n == 0)
     {
 
-        cout<<1;
+        cout << 1;
     }
-    else{
-
-        while(m!=0)
+    else
     {
-        mask=(mask<<1) | 1;
-        m=m>>1;
 
-    }
-    int ans=(~n)&mask;
-    cout<<ans;
+        while (m != 0)
+        {
+            mask = (mask << 1) | 1;
+            m = m >> 1;
+        }
+        int ans = (~n) & mask;
+        cout << ans;
     }
     // while(m!=0)
     // {
@@ -34,5 +34,4 @@ int main()
     // }
     // int ans=(~n)&mask;
     // cout<<ans;
-
 }
