@@ -9,8 +9,7 @@ static const bool __boost = []()
 
 int longestConsecutive(vector<int> &nums)
 {
-    if (nums.empty())
-        return 0;
+    if (nums.empty()) return 0;
     int longest=1;
     unordered_set<int>st;
     for(int i=0;i<nums.size();++i)
