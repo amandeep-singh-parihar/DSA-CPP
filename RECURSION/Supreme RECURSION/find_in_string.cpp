@@ -28,7 +28,7 @@ int main()
     string str="amandeepsinghparihar";
     int n=str.length();
 
-    char key='z';
+    char key='a';
     int i=0;
 
     int ans=findKey(str,i,n,key);

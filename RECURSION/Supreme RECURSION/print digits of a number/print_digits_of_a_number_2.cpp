@@ -14,7 +14,7 @@ void PrintNum(int n)
     //recursion 
     // int newValueN=n/10;
     PrintNum(n/10);
-
+    //print in correct order as we are recursive call fisrt and processing second
 
     //1case solve
     int rem=n%10;

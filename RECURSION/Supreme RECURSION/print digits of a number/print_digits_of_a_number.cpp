@@ -18,7 +18,7 @@ void PrintNUMs(int n,vector<int>&ans)
     //1case solve
     int rem=n%10;
     ans.push_back(rem);
-    n/=10;
+    n/=10;//ans will be in reverse order as we are processing first and recursive call second
 
     //rs call
     PrintNUMs(n,ans);
