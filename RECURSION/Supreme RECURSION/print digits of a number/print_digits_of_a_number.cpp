@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+static const bool __boost = []()
+{
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return ios_base::sync_with_stdio(false);
+}();
+
+void PrintNUMs(int n,vector<int>&ans)
+{
+    //bc
+    if(n==0)
+    {
+        return;
+    }
+
+    //1case solve
+    int rem=n%10;
+    ans.push_back(rem);
+    n/=10;
+
+    //rs call
+    PrintNUMs(n,ans);
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>ans;
+    PrintNUMs(n,ans);
+
+    //for reversing the verctor 
+    reverse(ans.begin(),ans.end());
+    for(auto z:ans)
+    {
+        cout<<z<<" ";
+    }
+    cout<<endl;
+    return 0;
+}
