@@ -28,7 +28,7 @@ int rob(vector<int> &arr)
 
 int main()
 {
-    vector<int> arr{1, 2, 3, 1};
+    vector<int> arr{2,1,1,2};
     cout << rob(arr);
     return 0;
 }
