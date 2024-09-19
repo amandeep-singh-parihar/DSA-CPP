@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-
+//revision 1
 void maxProfitFinder(vector<int>&arr,int i,int& minSoFar,int& maxProfit)
 {
     //bc

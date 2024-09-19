@@ -6,7 +6,8 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-
+//Brute force
+//revision 1
 int majorityElement(vector<int> &nums)
 {
     for (int i = 0; i < nums.size(); ++i)

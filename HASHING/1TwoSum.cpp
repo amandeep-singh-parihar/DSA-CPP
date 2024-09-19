@@ -1,31 +1,35 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-vector<int> twoSum(vector<int> &arr, int target)
+static const bool __boost = []()
 {
-    unordered_map<int, int> mpp;
-    for (int i = 0; i < arr.size(); ++i)
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return ios_base::sync_with_stdio(false);
+}();
+
+vector<int>twoSum(vector<int>nums,int target)
+{
+    vector<int>ans;
+    unordered_map<int,int>mpp;
+    for(int i=0;i<nums.size();++i)
     {
-        int num = arr[i];
-        int required = target - num;
-        if (mpp.find(required) != mpp.end())
+        int moreNeeded=target-nums[i];
+        if(mpp.find(moreNeeded)!=mpp.end())
         {
-            return {mpp[required], i};
+            ans.push_back(mpp[moreNeeded]);
+            ans.push_back(i);
+            return ans;
         }
-        mpp[num] = i;
+        mpp[nums[i]]=i;
     }
-    return {-1, -1};
+    return {-1,-1};
 }
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    vector<int> nums = {3, 2, 4};
-    int target = 6;
+    vector<int> nums = {2,7,11,15};
+    int target = 9;
     vector<int> result = twoSum(nums, target);
     cout << "Indices: [" << result[0] << ", " << result[1] << "]" << endl;
-
     return 0;
 }
