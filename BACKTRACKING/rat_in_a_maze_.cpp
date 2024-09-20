@@ -62,13 +62,13 @@ void solveMaze(vector<vector<int>>&arr,int row,int col,int i,int j,vector<vector
 
 int main()
 {
-    // vector<vector<int>>arr={{1,0,0,0},
-    //                         {1,1,0,1},
-    //                         {1,1,0,1},
-    //                         {0,1,1,1}};
+    vector<vector<int>>arr={{1,0,0,0},
+                            {1,1,0,1},
+                            {1,1,0,1},
+                            {0,1,1,1}};
 
-    vector<vector<int>>arr={{1,1},
-                            {1,1}};
+    // vector<vector<int>>arr={{1,1},
+    //                         {1,1}};
     
     //edge case
     if(arr[0][0]==0)

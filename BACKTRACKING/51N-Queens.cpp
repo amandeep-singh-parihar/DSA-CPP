@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-
+//rivise pending
 bool isSafe(vector<vector<string>> &board, int row, int col, int n)
 {
     int i = row, j = col;
@@ -63,6 +63,7 @@ void solve(vector<vector<string>> &board, vector<vector<string>> &result, int co
         return;
     }
 
+    //recursion
     for (int row = 0; row < n; ++row)
     {
         if (isSafe(board, row, col, n))
@@ -70,6 +71,7 @@ void solve(vector<vector<string>> &board, vector<vector<string>> &result, int co
             board[row][col] = "Q";
             solve(board, result, col + 1, n);
 
+            //backtracking
             board[row][col] = ".";
         }
     }
@@ -86,7 +88,7 @@ int main()
     {
         cout << "[";
         for (int j = 0; j < result[0].size(); ++j)
-        {
+        { 
             cout<< "[" << '"' << result[i][j] << '"';
             if(j<result[0].size()-1)
             {
