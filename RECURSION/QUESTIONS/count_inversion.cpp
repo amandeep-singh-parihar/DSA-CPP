@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+//leave it more good code is already written in DnC folder
 
 long long merge(int arr[],int s,int e){
     int mid=s+(e-s)/2;
