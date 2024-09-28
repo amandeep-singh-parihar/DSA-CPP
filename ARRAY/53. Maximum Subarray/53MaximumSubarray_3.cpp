@@ -1,6 +1,6 @@
-// KADANE'S ALGORITHM
-// KADANE'S ALGORITHM
-// KADANE'S ALGORITHM
+// KADANE'S ALGORITHM KADANE'S ALGORITHM KADANE'S ALGORITHM
+// KADANE'S ALGORITHM KADANE'S ALGORITHM KADANE'S ALGORITHM
+// KADANE'S ALGORITHM KADANE'S ALGORITHM KADANE'S ALGORITHM
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -19,10 +19,7 @@ int maxSubArray(vector<int> &nums)
     {
         sum += nums[i];
 
-        if (sum > maxi)
-        {
-            maxi = sum;
-        }
+        maxi = max(maxi, sum);
 
         if (sum < 0)
         {
@@ -34,8 +31,7 @@ int maxSubArray(vector<int> &nums)
 
 int main()
 {
-    vector<int> nums = {4, 3, 1, 5, 6};
+    vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
     cout << maxSubArray(nums);
     return 0;
 }
-

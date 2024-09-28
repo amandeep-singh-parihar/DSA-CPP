@@ -6,11 +6,11 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-//revision 1
+// revision 1
 int majorityElement(vector<int> &nums)
 {
-    sort(nums.begin(),nums.end());
-    return nums[nums.size()/2];
+    sort(nums.begin(), nums.end());
+    return nums[nums.size() / 2];
 }
 
 int main()

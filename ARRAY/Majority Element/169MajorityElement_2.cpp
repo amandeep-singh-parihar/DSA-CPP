@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-//revision 1
+//revision 2
 int majorityElement(vector<int> &nums)
 {
     unordered_map<int, int> mpp;
@@ -16,7 +16,7 @@ int majorityElement(vector<int> &nums)
     }
     for (auto it : mpp)
     {
-        if (it.second > (nums.size()) / 2)
+        if (it.second > (nums.size()) / 2)  
             return it.first;
     }
 
