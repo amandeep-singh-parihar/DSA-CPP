@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-
+//revision 1
 void printSubarray_util(vector<int>&nums,int start,int end)
 {
     //base case

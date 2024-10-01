@@ -6,8 +6,8 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-
-int Partition(vector<int>&arr, int s, int e)
+//revision 1
+int Partition(vector<int> &arr, int s, int e)
 {
     int pivotIndex = s;
     int pivotElement = arr[pivotIndex];
@@ -45,7 +45,7 @@ int Partition(vector<int>&arr, int s, int e)
     return pivotIndex;
 }
 
-void quickSort(vector<int>&arr, int s, int e)
+void quickSort(vector<int> &arr, int s, int e)
 {
     if (s >= e)
         return;
@@ -61,7 +61,7 @@ void quickSort(vector<int>&arr, int s, int e)
 
 int main()
 {
-    vector<int>arr = {5, 1, 1, 2, 0, 0};
+    vector<int> arr = {5, 1, 1, 2, 0, 0};
     int n = arr.size();
 
     quickSort(arr, 0, n - 1);

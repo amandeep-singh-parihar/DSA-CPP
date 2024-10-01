@@ -1,12 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// static const bool __boost = []()
-// {
-//     cin.tie(nullptr);
-//     cout.tie(nullptr);
-//     return ios_base::sync_with_stdio(false);
-// }();
+static const bool __boost = []()
+{
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return ios_base::sync_with_stdio(false);
+}();
+
+//revision 1
 
 int digit(int n)
 {
@@ -18,10 +20,7 @@ int digit(int n)
 int main()
 {
     int n;
-    cout<<"enter the number : ";
     cin>>n;
-
-    cout<<"number of digits for the given number "<<n<<" : ";
     cout<<digit(n);
     return 0;
 }

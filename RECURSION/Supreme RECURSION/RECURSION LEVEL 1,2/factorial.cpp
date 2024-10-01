@@ -7,6 +7,7 @@ using namespace std;
 //     return ios_base::sync_with_stdio(false);
 // }();
 
+//revision 1
 int fact(int n)
 {
     //base case

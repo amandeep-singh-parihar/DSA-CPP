@@ -7,6 +7,7 @@ using namespace std;
 //     return ios_base::sync_with_stdio(false);
 // }();
 
+//revision 1
 int two(int n)
 {
     if(n==0) return 1;

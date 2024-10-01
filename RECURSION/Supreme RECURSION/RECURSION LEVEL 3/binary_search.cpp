@@ -6,7 +6,7 @@ using namespace std;
 //     cout.tie(nullptr);
 //     return ios_base::sync_with_stdio(false);
 // }();
-
+//revision 1
 int bin_srch(vector<int>& arr,int s,int e,int& key)
 {
     //base case 1

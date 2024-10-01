@@ -16,7 +16,7 @@ bool is_sorted(int arr[],int& n,int i)
     if(arr[i]>arr[i+1]) return false;
 
     //recursion
-    return is_sorted(arr,n,++i);
+    return is_sorted(arr,n,i+1);
 
 }
 

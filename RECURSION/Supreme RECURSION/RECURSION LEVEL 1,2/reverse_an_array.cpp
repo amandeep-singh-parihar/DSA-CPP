@@ -7,6 +7,8 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+//revision 1
+
 void Reverse(vector<int>& arr,int n,int s,int e)
 {
     //base case

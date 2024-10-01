@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-
+//revision 1
 void solve(vector<int>&arr,int sum,int& maxi,int i)
 {
     if(i>=arr.size())

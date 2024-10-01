@@ -1,3 +1,10 @@
+//INCLUDE EXCLUDE PATTERN
+//INCLUDE EXCLUDE PATTERN
+//INCLUDE EXCLUDE PATTERN
+//INCLUDE EXCLUDE PATTERN
+//INCLUDE EXCLUDE PATTERN
+//INCLUDE EXCLUDE PATTERN
+
 #include<bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()

@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-
+//revsion 1
 string removeOccurrences(string s,string part)
 {
     while(s.find(part)!=string::npos)

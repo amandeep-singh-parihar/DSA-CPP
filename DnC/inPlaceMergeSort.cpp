@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-
+//revision 1
 void mergeInPlace(vector<int> &arr, int start, int mid, int end)
 {
     int total_size = end - start + 1;

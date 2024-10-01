@@ -21,8 +21,7 @@ void CountKey(string str, int n, int i, char key, int &count)
         count++;
     }
 
-    return CountKey(str,n,++i,key,count);
-    //we can even remove the return of above statement as it is void
+    CountKey(str,n,i+1,key,count);
 }
 
 int main()

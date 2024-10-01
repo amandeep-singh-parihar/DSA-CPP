@@ -24,7 +24,7 @@ void print2(int i,int n)
 
     cout<<"aman"<<endl;
 
-    print2(++i,n);
+    print2(i+1,n);
 }
 
 int main()
