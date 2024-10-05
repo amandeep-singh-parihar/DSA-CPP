@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-
+//oral revision 1
 vector<vector<int>> threeSum(vector<int> &nums)
 {
     sort(nums.begin(), nums.end());
