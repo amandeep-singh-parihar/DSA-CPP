@@ -51,3 +51,5 @@ int main()
     cout << endl;
     return 0;
 }
+//T.C : O(m+n)
+//S.C : O(26)

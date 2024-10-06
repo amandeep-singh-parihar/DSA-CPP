@@ -37,5 +37,5 @@ int main()
     cout << endl;
     return 0;
 }
-//T.C : O(m-n)*nlongn
-//S.C : O(n)
+// T.C : O(m-n)*nlongn
+// S.C : O(n)
