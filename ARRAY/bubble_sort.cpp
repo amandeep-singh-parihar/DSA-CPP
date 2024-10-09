@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+// revison 1
 void bubbleSort(vector<int> &arr, int n)
 {
     for (int i = 1; i < n; i++)
@@ -30,12 +31,12 @@ int main()
 {
     int a;
     int size;
-    cin>>size;
+    cin >> size;
     vector<int> arr(size);
     for (int i = 0; i < size; i++)
     {
-        cin>>a;
-        arr[i]=a;
+        cin >> a;
+        arr[i] = a;
     }
 
     bubbleSort(arr, size);

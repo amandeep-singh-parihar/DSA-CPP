@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-
+//revision 1
 void selectionSort(vector<int> &arr, int n)
 {
     for (int i = 0; i < n - 1; i++)
@@ -14,10 +14,7 @@ void selectionSort(vector<int> &arr, int n)
             if (arr[j] < arr[minIndex])
                 minIndex = j;
         }
-        int temp = arr[minIndex];
-        arr[minIndex] = arr[i];
-        arr[i] = temp;
-        // swap(arr[minIndex], arr[i]);
+        swap(arr[minIndex],arr[i]);
     }
 }
 
