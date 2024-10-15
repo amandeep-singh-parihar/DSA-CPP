@@ -1,20 +1,22 @@
-//decimal to binary
 #include<bits/stdc++.h>
 using namespace std;
+static const bool __boost = []()
+{
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return ios_base::sync_with_stdio(false);
+}();
 int main()
 {
     int n;
-    cout<<"enter the decimal number :";
     cin>>n;
-    float ans=0;
-    int i=0;
+    int ans=0;
     while(n)
     {
-        int bit=n&1;
-        ans=bit*(pow(10,i))+ans;
+        int digit=n&1;
+        ans+=digit;
         n=n>>1;
-        i++;
-
     }
-    cout<<ans;
+    cout<<n<<" ";
+    return 0;
 }
