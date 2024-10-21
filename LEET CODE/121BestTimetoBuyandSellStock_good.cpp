@@ -1,3 +1,4 @@
+// 121. Best Time to Buy and Sell Stock
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -6,15 +7,15 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-//revision 1
-int maxProfit(vector<int>&arr)
+// revision 1
+int maxProfit(vector<int> &arr)
 {
-    int minimumSoFar=arr[0];
-    int maxProfit=INT_MIN;
-    for(int i=0;i<arr.size();++i)
+    int minimumSoFar = arr[0];
+    int maxProfit = INT_MIN;
+    for (int i = 0; i < arr.size(); ++i)
     {
-        minimumSoFar=min(minimumSoFar,arr[i]);
-        maxProfit=max(arr[i]-minimumSoFar,maxProfit);
+        minimumSoFar = min(minimumSoFar, arr[i]);
+        maxProfit = max(arr[i] - minimumSoFar, maxProfit);
     }
     return maxProfit;
 }

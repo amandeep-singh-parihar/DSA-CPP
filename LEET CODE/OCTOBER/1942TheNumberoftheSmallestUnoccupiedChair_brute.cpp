@@ -1,3 +1,4 @@
+//1942. The Number of the Smallest Unoccupied Chair
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()

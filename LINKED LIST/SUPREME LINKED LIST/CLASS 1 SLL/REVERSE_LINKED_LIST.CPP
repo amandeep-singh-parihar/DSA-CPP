@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-//reverse linked list using recursion
+// reverse linked list using recursion
 class node
 {
 public:
@@ -33,21 +33,21 @@ node *reverse(node *&prev, node *&curr)
     reverse(curr, forward);
 }
 
-void print(node* &head)
+void print(node *&head)
 {
-    node* temp=head;
-    while(temp!=nullptr)
+    node *temp = head;
+    while (temp != nullptr)
     {
-        cout<<temp->data<<" ";
-        temp=temp->next;
+        cout << temp->data << " ";
+        temp = temp->next;
     }
-    cout<<endl;
+    cout << endl;
 }
 
 int main()
 {
     // Creating a linked list: 1 -> 2 -> 3 -> 4 -> 5
-    node* head = new node(1);
+    node *head = new node(1);
     head->next = new node(2);
     head->next->next = new node(3);
     head->next->next->next = new node(4);
@@ -58,7 +58,7 @@ int main()
     print(head);
 
     // Reverse the list
-    node* prev = nullptr;
+    node *prev = nullptr;
     head = reverse(prev, head);
 
     // Print reversed list

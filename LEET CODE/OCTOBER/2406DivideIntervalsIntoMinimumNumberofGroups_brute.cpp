@@ -1,3 +1,4 @@
+// 2406. Divide Intervals Into Minimum Number of Groups
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()

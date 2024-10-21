@@ -1,3 +1,4 @@
+//228. Summary Ranges
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -7,7 +8,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-//revision pendin 1
+//revision 1
 
 vector<string> summaryRanges(vector<int> &arr)
 {
