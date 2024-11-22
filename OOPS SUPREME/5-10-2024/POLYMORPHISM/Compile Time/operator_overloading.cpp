@@ -23,7 +23,7 @@ class param{
 int main()
 {
     param a,b;
-    a.val=4;
+    a.val=10;
     b.val=5;
     a+b;
     return 0;
