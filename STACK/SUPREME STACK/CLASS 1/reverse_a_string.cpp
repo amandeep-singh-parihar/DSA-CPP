@@ -8,6 +8,19 @@ static const bool __boost = []()
 }();
 int main()
 {
-    
+    string str;
+    cin>>str;
+    stack<char>st;
+    for(char ch:str)
+    {
+        st.push(ch);
+    }
+
+    while(!st.empty())
+    {
+        cout<<st.top();
+        st.pop();
+    }
+
     return 0;
 }
