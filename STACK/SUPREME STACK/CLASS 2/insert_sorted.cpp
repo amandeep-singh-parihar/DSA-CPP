@@ -1,4 +1,4 @@
-// insert sorted
+// insert sorted in stack
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -7,6 +7,8 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
+
+// revision 1
 
 void insertSorted(stack<int> &s, int target)
 {
@@ -31,16 +33,16 @@ void insertSorted(stack<int> &s, int target)
 int main()
 {
     stack<int> s;
-    s.push(8);
-    s.push(5);
-    s.push(3);
-    s.push(1);
+    s.push(40);
+    s.push(30);
+    s.push(20);
+    s.push(10);
 
-    insertSorted(s, 7);
+    insertSorted(s, 25);
 
     while (!s.empty())
     {
-        cout << s.top() << " ";
+        cout << s.top() << endl;
         s.pop();
     }
 

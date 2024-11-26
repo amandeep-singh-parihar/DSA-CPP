@@ -7,7 +7,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-//revision needed
+// revision 1
 
 void insert_at_bottom(stack<int> &s, int target)
 {
@@ -41,7 +41,7 @@ void print(stack<int> &s)
 {
     while (!s.empty())
     {
-        cout << s.top() << " ";
+        cout << s.top() << endl;
         s.pop();
     }
     cout << endl;

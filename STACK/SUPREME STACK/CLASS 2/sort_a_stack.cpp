@@ -8,13 +8,13 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-//revision needed
+// revision 1
 
 void insertSorted(stack<int> &s, int target)
 {
     if (s.empty())
     {
-        s.push(target); 
+        s.push(target);
         return;
     }
 
@@ -41,7 +41,7 @@ void sort_a_stack(stack<int> &s)
     s.pop();
 
     sort_a_stack(s);
-    insertSorted(s, topEle);
+    insertSorted(s, topEle); //now we have to push it in sorted manner
 }
 
 int main()
@@ -52,7 +52,6 @@ int main()
     s.push(30);
     s.push(-1101);
 
-    // insertSorted(s, 7);
     sort_a_stack(s);
 
     while (!s.empty())

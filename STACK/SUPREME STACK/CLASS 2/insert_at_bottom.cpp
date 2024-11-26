@@ -7,9 +7,9 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-//revision needed
+//revision 1
 
-void solve(stack<int> &s, int sizeOfStack, int target)
+void solve(stack<int> &s, int tsize, int target)
 {
     if (s.empty())
     {
@@ -19,19 +19,19 @@ void solve(stack<int> &s, int sizeOfStack, int target)
 
     int temp = s.top();
     s.pop();
-    solve(s, sizeOfStack, target);
+    solve(s, tsize, target);
     s.push(temp);
 }
 
-void insert_at_bottom(stack<int> &s, int sizeOfStack)
+void insert_at_bottom(stack<int> &s, int tsize)
 {
-    if(s.empty())
+    if(s.empty()) 
     {
         cout<<"Stack is Empty"<<endl;
     }
     int target=s.top();
     s.pop();
-    solve(s, sizeOfStack, target);
+    solve(s, tsize, target);
 }
 
 void print(stack<int> &s)
@@ -47,16 +47,15 @@ void print(stack<int> &s)
 int main()
 {
     stack<int> s;
-    s.push(10);
+    s.push(10);    //bottom element
     s.push(20);
     s.push(30);
-    s.push(-100);
-    // s.push(40);
-    // s.push(50);
-    // s.push(60);
-    // s.push(70);
-    int sizeOfStack = s.size();
-    insert_at_bottom(s, sizeOfStack);
+    s.push(40);
+    s.push(50);
+    s.push(60);
+    s.push(-999);  // top element
+    int tsize = s.size();
+    insert_at_bottom(s, tsize);
     print(s);
     return 0;
 }

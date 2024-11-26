@@ -8,6 +8,8 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// revision 1
+
 bool isValid(string s)
 {
     stack<char> st;
@@ -37,7 +39,7 @@ bool isValid(string s)
 int main()
 {
     string str;
-    cin>>str;
-    cout<<isValid(str);
+    cin >> str;
+    cout << isValid(str);
     return 0;
 }
