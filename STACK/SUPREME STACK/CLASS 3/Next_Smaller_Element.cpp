@@ -1,21 +1,27 @@
-#include<bits/stdc++.h>
+// next smaller element
+#include <bits/stdc++.h>
 using namespace std;
+static const bool __boost = []()
+{
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return ios_base::sync_with_stdio(false);
+}();
 
 vector<int> nextSmallerElement(vector<int> &arr, int n)
 {
     stack<int> s;
     s.push(-1);
     vector<int> ans(n);
-    
-    for(int i=n-1;i>=0;--i)
+
+    for (int i = n - 1; i >= 0; --i)
     {
-        int current=arr[i];
-        while(current<=s.top())
+        while (arr[i] <= s.top())
         {
             s.pop();
         }
-        ans[i]=s.top();
-        s.push(current);
+        ans[i] = s.top();
+        s.push(arr[i]);
     }
     return ans;
 }
@@ -23,12 +29,10 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
 int main()
 {
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
 
     vector<int> arr(n);
 
-    cout << "Enter the elements: ";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
@@ -36,12 +40,9 @@ int main()
 
     vector<int> result = nextSmallerElement(arr, n);
 
-    cout << "Next smaller elements for each element in the array: ";
     for (int i = 0; i < n; i++)
     {
         cout << result[i] << " ";
     }
     cout << endl;
-
-    return 0;
 }
