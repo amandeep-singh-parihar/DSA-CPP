@@ -12,13 +12,28 @@ vector<int> previousSmallerElement(vector<int> &arr, int n)
     stack<int>s;
     s.push(-1);
     vector<int>ans(n);
+    // for(int i=0;i<arr.size();++i)
+    // {
+    //     while(arr[i]<=s.top())
+    //     {
+    //         s.pop();
+    //     }
+    //     ans[i]=s.top();
+    //     s.push(arr[i]);
+    // }
+    //below one is easy to remember
     for(int i=0;i<arr.size();++i)
     {
-        while(arr[i]<=s.top())
+        while(s.top()!=-1 && arr[i]<=s.top())
         {
             s.pop();
         }
-        ans[i]=s.top();
+        if(s.top()==-1)
+        {
+            ans[i]=-1;
+        }else{
+            ans[i]=s.top();
+        }
         s.push(arr[i]);
     }
     return ans;

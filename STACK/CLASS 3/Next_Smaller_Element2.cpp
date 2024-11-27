@@ -1,22 +1,26 @@
+// next smaller element
 #include <bits/stdc++.h>
 using namespace std;
+static const bool __boost = []()
+{
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return ios_base::sync_with_stdio(false);
+}();
 
-vector<int> NGE(vector<int> &arr, int size)
+vector<int> nextSmallerElement(vector<int> &arr, int n)
 {
     stack<int> s;
     s.push(-1);
-    vector<int> ans(size);
-
-    for (int i = size - 1; i >= 0; --i)
+    vector<int> ans(n);
+    //+a-
+    for (int i = n - 1; i >= 0; --i)
     {
-        //-a+     summary
-        int current = arr[i];
-        while (!s.empty() && current >= s.top())
+        while (s.top() != -1 && arr[i] <= s.top())
         {
             s.pop();
         }
-
-        if (s.empty())
+        if (s.top() == -1)
         {
             ans[i] = -1;
         }
@@ -24,7 +28,7 @@ vector<int> NGE(vector<int> &arr, int size)
         {
             ans[i] = s.top();
         }
-        s.push(current);
+        s.push(arr[i]);
     }
     return ans;
 }
@@ -32,25 +36,20 @@ vector<int> NGE(vector<int> &arr, int size)
 int main()
 {
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
 
     vector<int> arr(n);
 
-    cout << "Enter the elements: ";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    vector<int> result = NGE(arr, n);
+    vector<int> result = nextSmallerElement(arr, n);
 
-    cout << "Next Greater elements for each element in the array: ";
     for (int i = 0; i < n; i++)
     {
         cout << result[i] << " ";
     }
     cout << endl;
-
-    return 0;
 }
