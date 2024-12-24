@@ -1,3 +1,4 @@
+// merge sort
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -7,7 +8,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-void merge(vector<int>&arr, int s, int e)
+void merge(vector<int> &arr, int s, int e)
 {
     int mid = s + (e - s) / 2;
     int len1 = mid - s + 1;
@@ -52,7 +53,7 @@ void merge(vector<int>&arr, int s, int e)
     }
 }
 
-void mergeSORT(vector<int>&arr, int s, int e)
+void mergeSORT(vector<int> &arr, int s, int e)
 {
     if (s == e)
         return;
@@ -67,7 +68,7 @@ void mergeSORT(vector<int>&arr, int s, int e)
 
 int main()
 {
-    vector<int>arr = {4, 3, 2, 1, 0, 12, -2, 12, 0, -1, -1};
+    vector<int> arr = {4, 3, 2, 1, 0, 12, -2, 12, 0, -1, -1};
     int n = arr.size();
 
     cout << endl;

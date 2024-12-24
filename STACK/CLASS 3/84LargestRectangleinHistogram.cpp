@@ -1,4 +1,4 @@
-//84. Largest Rectangle in Histogram
+// 84. Largest Rectangle in Histogram
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -7,6 +7,9 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
+
+// revision 1
+
 vector<int> previousSmallerElement(vector<int> &arr, int n)
 {
     stack<int> s;
@@ -45,7 +48,7 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
         if (s.top() == -1)
         {
             // place the size of the array
-            ans[i] = arr.size();
+            ans[i] = n;
         }
         else
         {

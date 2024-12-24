@@ -1,4 +1,6 @@
+// monotonic stack
 // next smaller element
+// revision 1
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
