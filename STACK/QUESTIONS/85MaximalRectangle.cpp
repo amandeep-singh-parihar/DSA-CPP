@@ -1,4 +1,3 @@
-// 84. Largest Rectangle in Histogram
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -8,13 +7,15 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-// revision 2
+//revision 1
 
 vector<int> previousSmallerElement(vector<int> &arr, int n)
 {
     stack<int> s;
     s.push(-1);
     vector<int> ans(n);
+
+#pragma unroll
     for (int i = 0; i < arr.size(); ++i)
     {
         while (s.top() != -1 && arr[i] <= arr[s.top()])
@@ -39,6 +40,8 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
     stack<int> s;
     s.push(-1);
     vector<int> ans(n);
+
+#pragma unroll
     for (int i = arr.size() - 1; i >= 0; --i)
     {
         while (s.top() != -1 && arr[i] <= arr[s.top()])
@@ -47,8 +50,7 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
         }
         if (s.top() == -1)
         {
-            // place the size of the array
-            ans[i] = n;
+            ans[i] = n; // Place the size of the array
         }
         else
         {
@@ -68,6 +70,8 @@ int largestRectangleArea(vector<int> &heights)
     vector<int> pse = previousSmallerElement(heights, heights.size());
     vector<int> nse = nextSmallerElement(heights, heights.size());
     int maxi = 0;
+
+#pragma unroll
     for (int i = 0; i < heights.size(); ++i)
     {
         maxi = max(maxi, heights[i] * (nse[i] - pse[i] - 1));
@@ -75,18 +79,55 @@ int largestRectangleArea(vector<int> &heights)
     return maxi;
 }
 
-int main()
+int maximalRectangle(vector<vector<char>> &matrix)
 {
-    int n;
-    cin >> n;
+    vector<vector<int>> v;
+    int n = matrix.size();
+    int m = matrix[0].size();
 
-    vector<int> arr(n);
-
-    for (int i = 0; i < n; i++)
+#pragma unroll
+    for (int i = 0; i < n; ++i)
     {
-        cin >> arr[i];
+        vector<int> t;
+
+#pragma unroll
+        for (int j = 0; j < m; ++j)
+        {
+            t.push_back(matrix[i][j] - '0');
+        }
+        v.push_back(t);
     }
 
-    cout << largestRectangleArea(arr);
-    cout << endl;
+    int area = largestRectangleArea(v[0]);
+
+#pragma unroll
+    for (int i = 1; i < n; ++i)
+    {
+#pragma unroll
+        for (int j = 0; j < m; ++j)
+        {
+            if (v[i][j])
+            {
+                v[i][j] += v[i - 1][j];
+            }
+            else
+            {
+                v[i][j] = 0;
+            }
+        }
+        area = max(area, largestRectangleArea(v[i]));
+    }
+    return area;
+}
+
+int main(){
+    vector<vector<char>> matrix = {
+        {'1', '0', '1', '0', '0'},
+        {'1', '0', '1', '1', '1'},
+        {'1', '1', '1', '1', '1'},
+        {'1', '0', '0', '1', '0'}
+    };
+    int maxArea = maximalRectangle(matrix);
+    cout << "Maximum rectangle area: " << maxArea << endl;
+    return 0;
 }
