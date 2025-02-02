@@ -17,9 +17,9 @@ void birdDoesSomething(Bird *&bird)
 
 int main()
 {
-    Bird*bird=new pigeon();
+    Bird *bird = new pigeon();
     // sparrow*sp=new sparrow();
-    // sp->eat(); //not possible 
+    // sp->eat(); //not possible
     birdDoesSomething(bird);
     // Bird*b2=new Bird(); // not possible
     return 0;

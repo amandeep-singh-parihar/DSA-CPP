@@ -1,6 +1,6 @@
 #if !defined(BIRD_H)
 #define BIRD_H
-#include<iostream>
+#include <iostream>
 class Bird
 {
 public:
@@ -19,7 +19,7 @@ private:
     }
     void fly()
     {
-        std::cout<<"Sparrow is flying\n";
+        std::cout << "Sparrow is flying\n";
     }
 };
 
@@ -32,7 +32,7 @@ private:
     }
     void fly()
     {
-        std::cout<<"Eagle is flying\n";
+        std::cout << "Eagle is flying\n";
     }
 };
 
@@ -45,7 +45,7 @@ private:
     }
     void fly()
     {
-        std::cout<<"Pigeon is flying faster\n";
+        std::cout << "Pigeon is flying faster\n";
     }
 };
 
