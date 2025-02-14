@@ -42,7 +42,7 @@ vector<int> inorder(node *root)
         }
         else
         {
-            // if the element if null
+            // if the element is null
             if (st.empty())           // check if the stack is empty it means traversal done
                 break;                // break the loop
             ele = st.top();           // if the stack is not empty take the top element of the stack
