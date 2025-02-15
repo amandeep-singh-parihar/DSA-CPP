@@ -56,14 +56,14 @@ bool isBalanced(node *root)
 */
 
 // Optimal Approach T.C O(N)
-int dfsHeight(node *root, int step = 0)
+int dfsHeight(node *root)
 {
     if (root == NULL)
     {
         return 0;
     }
 
-    int lh = dfsHeight(root->left, step + 1);
+    int lh = dfsHeight(root->left);
     if (lh == -1)
     {
         // here when the dfsHeight return from a calling as this is recursion, if the difference is > 1
@@ -72,7 +72,7 @@ int dfsHeight(node *root, int step = 0)
         return -1;
     }
 
-    int rh = dfsHeight(root->right, step + 1);
+    int rh = dfsHeight(root->right);
     if (rh == -1)
     {
         // here when the dfsHeight return from a calling as this is recursion, if the difference is > 1
