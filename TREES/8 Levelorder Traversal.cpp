@@ -53,6 +53,31 @@ vector<vector<int>> levelorder(TreeNode *root)
     return ans; // return the ans
 }
 
+// If we want the level order traversal in one line (or one vector)
+vector<int> _levelorder(TreeNode *root)
+{
+    vector<int> ans;
+    if (!root)
+        return ans;
+    queue<TreeNode *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        TreeNode *node = q.front();
+        q.pop();
+        if (node->left)
+        {
+            q.push(node->left);
+        }
+        if (node->right)
+        {
+            q.push(node->right);
+        }
+        ans.push_back(node->val);
+    }
+    return ans;
+}
+
 int main()
 {
     // Creating a sample binary tree
@@ -77,6 +102,14 @@ int main()
         }
         cout << "\n";
     }
+
+    // calling the _level order traversal
+    vector<int> ans = _levelorder(root);
+    for (int i = 0; i < ans.size(); ++i)
+    {
+        cout << ans[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
