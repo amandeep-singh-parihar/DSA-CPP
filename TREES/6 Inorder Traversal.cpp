@@ -55,34 +55,43 @@ vector<int> _inorder(node *root)
 }
 
 // Morris
+// TC O(N)
+// SC O(1)
 vector<int> __inorder(node *root)
 {
     vector<int> ans;
     if (!root)
         return ans;
-    node *curr = root;   // take the root as current
-    while (curr != NULL) // till the current root not null
+    node *curr = root;
+    while (curr != NULL)
     {
-        if (curr->left == NULL) // if the current root is null it means this is the left most root print it
+        if (curr->left == NULL)
         {
-            ans.push_back(curr->data); // push it in the vector
-            curr = curr->right;        // now go the right of the current node
+            ans.push_back(curr->data);
+            curr = curr->right;
         }
-        else // if the current->left is not null
+        else
         {
-            node *leftChild = curr->left;    // the leftChild of the current
-            while (leftChild->right != NULL) // go to the most right of the left child
+            node *leftChild = curr->left;
+            while (leftChild->right && leftChild->right != curr)
             {
                 leftChild = leftChild->right;
             }
 
-            leftChild->right = curr; // connect the most right node of leftChild to the current
-            node *temp = curr;       // get a temp as curr
-            curr = curr->left;       // go move the curr to the left
-            temp->left = NULL;       // now mark the left root as null as we don't go on it again
+            if (leftChild->right == NULL)
+            {
+                leftChild->right = curr;
+                curr = curr->left;
+            }
+            else
+            {
+                leftChild->right = NULL;
+                ans.push_back(curr->data);
+                curr = curr->right;
+            }
         }
     }
-    return ans; // return the ans;
+    return ans;
 }
 
 int main()
