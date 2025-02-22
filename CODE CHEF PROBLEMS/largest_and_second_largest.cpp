@@ -6,12 +6,12 @@ int solve(int arr[], int n)
     int max2 = INT_MIN;
     for (int i = 0; i < n; ++i)
     {
-        if (arr[i] > max1)
+        if (arr[i] > max1) // if the element is big than the biggest one update both
         {
             max2 = max1;
             max1 = arr[i];
         }
-        else if (arr[i] > max2 && arr[i] < max1)
+        else if (arr[i] > max2 && arr[i] < max1) // but if the element is big than second one and smaller that biggest one update only the second one
         {
             max2 = arr[i];
         }
