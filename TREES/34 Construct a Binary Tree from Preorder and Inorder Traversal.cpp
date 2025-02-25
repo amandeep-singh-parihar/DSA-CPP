@@ -34,6 +34,8 @@ TreeNode *buildTreeHelper(vector<int> &preorder, int preStart, int preEnd, vecto
     root->left = buildTreeHelper(preorder, preStart + 1, preStart + numsLeft, inorder, inStart, inRoot - 1, inMap);
 
     root->right = buildTreeHelper(preorder, preStart + numsLeft + 1, preEnd, inorder, inRoot + 1, inEnd, inMap);
+
+    return root;
 }
 
 TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder)

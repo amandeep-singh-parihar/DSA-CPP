@@ -1,4 +1,4 @@
-// 236. Lowest Common Ancestor of a Binary Tree
+// 235. Lowest Common Ancestor of a Binary Search Tree
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -11,13 +11,13 @@ static const bool __boost = []()
 struct TreeNode
 {
     int data;
-    TreeNode *left;
-    TreeNode *right;
+    struct TreeNode *left;
+    struct TreeNode *right;
 
     TreeNode(int val)
     {
         data = val;
-        left = right = nullptr;
+        left = right = NULL;
     }
 };
 
@@ -51,28 +51,31 @@ TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
     }
 }
 
+// TC O(H)
+// SC
+// O(H), where H is the height of the tree.
+// O(log N) for a balanced tree (recursion depth = tree height).
+// O(N) for a skewed tree (recursion depth = number of nodes).
+TreeNode *_lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
+{
+    if (!root)
+        return NULL;
+    if (root->data < p->data && root->data < q->data)
+    {
+        return _lowestCommonAncestor(root->right, p, q);
+    }
+    else if (root->data > p->data && root->data > q->data)
+    {
+        return _lowestCommonAncestor(root->left, p, q);
+    }
+    else
+    {
+        return root;
+    }
+}
+
 int main()
 {
-    // Creating the tree:
-    //         1
-    //       /   \
-    //      2     3
-    //     / \   / \
-    //    4   5 6   7
-
-    TreeNode *root = new TreeNode(1);
-    root->left = new TreeNode(2);
-    root->right = new TreeNode(3);
-    root->left->left = new TreeNode(4);
-    root->left->right = new TreeNode(5);
-    root->right->left = new TreeNode(6);
-    root->right->right = new TreeNode(7);
-
-    TreeNode *p = root->left->left;  // Node 4
-    TreeNode *q = root->left->right; // Node 5
-
-    TreeNode *lca = lowestCommonAncestor(root, p, q);
-    cout << "Lowest Common Ancestor of " << p->data << " and " << q->data << " is: " << lca->data << endl;
 
     return 0;
 }
