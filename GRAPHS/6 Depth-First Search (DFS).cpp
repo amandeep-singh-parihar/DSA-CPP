@@ -11,26 +11,27 @@ static const bool __boost = []()
 // SC O(N) + O(N) + O(N) = O(N)
 void dfs(int node, vector<vector<int>> &adj, vector<int> &vis, vector<int> &ls)
 {
-    vis[node] = 1;
-    ls.push_back(node);
+    vis[node] = 1;      // mark the current node as visited
+    ls.push_back(node); // store the node in the ls list
 
+    // traverse all the adjacent nodes of the current node
     for (auto it : adj[node])
     {
-        if (!vis[it])
+        if (!vis[it]) // if the adjacent node is not visited
         {
-            dfs(it, adj, vis, ls);
+            dfs(it, adj, vis, ls); // Recursivly visit the adjacent node
         }
     }
 }
 
 vector<int> dfsOfGraph(vector<vector<int>> &adj)
 {
-    int V = adj.size();
-    vector<int> vis(V, 0);
-    int start = 0;
-    vector<int> ls;
-    dfs(start, adj, vis, ls);
-    return ls;
+    int V = adj.size();       // find the number of vertices
+    vector<int> vis(V, 0);    // visited array initialized with 0
+    int start = 0;            // Assuming DFS start from node 0
+    vector<int> ls;           // List to store the DFS traversal
+    dfs(start, adj, vis, ls); // call dfs for the starting node
+    return ls;                // return the DFS traversal list
 }
 
 int main()

@@ -13,7 +13,7 @@ vector<int> bfsOfGraph(vector<vector<int>> &adj)
 {
     int V = adj.size();    // first take the number of nodes
     vector<int> vis(V, 0); // create a vector of size equal to nodes and mark all as 0
-    vis[0] = 1;            // mark the 0th index as 1
+    vis[0] = 1;            // mark the 0th index as 1 as if 0 based indexing
     queue<int> q;          // create a queue
     q.push(0);             // push the 0 in the queue
     vector<int> bfs;       // create a vector which store the value of bfs traversal
@@ -23,9 +23,9 @@ vector<int> bfsOfGraph(vector<vector<int>> &adj)
         q.pop();              // pop it
         bfs.push_back(node);  // push the node in the bfs vector
 
-        for (auto it : adj[node]) // now check the neighbours of that node
+        for (auto it : adj[node]) // now check the neighbours of that node in the adjacency list
         {
-            if (!vis[it]) // if the neighbours if the neightbours is not visited
+            if (!vis[it]) // if the neighbours is not visited
             {
                 vis[it] = 1; // mark them as visited
                 q.push(it);  // and push it in the queue
