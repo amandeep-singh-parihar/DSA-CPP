@@ -23,8 +23,8 @@ struct TreeNode
 
 vector<int> getTopView(TreeNode *root)
 {
-    queue<pair<TreeNode *, int>> q;
-    map<int, int> mp;
+    queue<pair<TreeNode *, int>> q; // {node,column}
+    map<int, int> mp;               // col -> data
     q.push({root, 0});
     while (!q.empty())
     {
@@ -32,7 +32,7 @@ vector<int> getTopView(TreeNode *root)
         q.pop();
         TreeNode *node = it.first;
         int col = it.second;
-        if (mp.find(col) == mp.end())
+        if (mp.find(col) == mp.end()) // if the col is not already in the map
         {
             mp[col] = node->data;
         }

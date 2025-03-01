@@ -36,7 +36,8 @@ vector<int> rightSideView(TreeNode *root)
         q.pop();
         TreeNode *node = it.first;
         int row = it.second;
-        mp[row] = node->data;
+        mp[row] = node->data; // no need of checking as we are pushing left first and then right 
+        // if there is any node at the same row level(rightmost) then it get pushed it later (overwrite)
         if (node->left)
         {
             q.push({node->left, row + 1});

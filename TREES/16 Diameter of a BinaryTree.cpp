@@ -45,7 +45,7 @@ int diameterOfBinaryTree(node *root)
     solve(root, diameter);
 
     return diameter;
-}   
+}
 
 int main()
 {

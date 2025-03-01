@@ -27,7 +27,7 @@ vector<int> getBottomView(TreeNode *root)
     if (root == NULL)
         return ans;
 
-    queue<pair<TreeNode *, int>> q;
+    queue<pair<TreeNode *, int>> q; // {node,col}
     map<int, int> mp;
     q.push({root, 0});
     while (!q.empty())

@@ -21,7 +21,7 @@ struct node
     }
 };
 
-// using recursion
+// Using recursion
 bool isSameTree(node *p, node *q)
 {
     // If both nodes are NULL, they are identical (base case)
@@ -35,51 +35,51 @@ bool isSameTree(node *p, node *q)
     return (p->data == q->data) && isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
 }
 
-// using BFS
-// bool isSameTree(node *p, node *q)
-// {
-//     // If both nodes are NULL, they are identical (base case)
-//     if (p == NULL || q == NULL)
-//         return p == q; // Returns true if both are NULL, otherwise false
+// Using BFS
+bool _isSameTree(node *p, node *q)
+{
+    // If both nodes are NULL, they are identical (base case)
+    if (p == NULL || q == NULL)
+        return p == q; // Returns true if both are NULL, otherwise false
 
-//     queue<node *> que1;
-//     queue<node *> que2;
+    queue<node *> que1;
+    queue<node *> que2;
 
-//     que1.push(p); // push p in the que1
-//     que2.push(q); // pusht q in the que2
+    que1.push(p); // push p in the que1
+    que2.push(q); // pusht q in the que2
 
-//     while (!que1.empty() && !que2.empty()) // till the anyone of them will empty
-//     {
-//         node *node1 = que1.front(); // take the first element of the que1
-//         que1.pop();                 // pop it from the que1
-//         node *node2 = que2.front(); // take the first element of the que2
-//         que2.pop();                 // pop if from the que2
+    while (!que1.empty() && !que2.empty()) // till the anyone of them will empty
+    {
+        node *node1 = que1.front(); // take the first element of the que1
+        que1.pop();                 // pop it from the que1
+        node *node2 = que2.front(); // take the first element of the que2
+        que2.pop();                 // pop if from the que2
 
-//         if (node1->data != node2->data) // if the data of the node1 and node2 are not same return false
-//             return false;
+        if (node1->data != node2->data) // if the data of the node1 and node2 are not same return false
+            return false;
 
-//         if (node1->left != NULL && node2->left != NULL) // if both the nodes do not have left as NULL
-//         {
-//             que1.push(node1->left); // push the node1 left in the queue
-//             que2.push(node2->left); // push the node2 left in the queue
-//         }
-//         else if (node1->left != NULL || node2->left != NULL) // if any of them will NULL
-//         {
-//             return false;
-//         }
+        if (node1->left != NULL && node2->left != NULL) // if both the nodes do not have left as NULL
+        {
+            que1.push(node1->left); // push the node1 left in the queue
+            que2.push(node2->left); // push the node2 left in the queue
+        }
+        else if (node1->left != NULL || node2->left != NULL) // if any of them will NULL
+        {
+            return false;
+        }
 
-//         if (node1->right != NULL && node2->right != NULL) // same for the right
-//         {
-//             que1.push(node1->right);
-//             que2.push(node2->right);
-//         }
-//         else if (node1->right != NULL || node2->right != NULL)
-//         {
-//             return false;
-//         }
-//     }
-//     return true; // run only if tree are identical
-// }
+        if (node1->right != NULL && node2->right != NULL) // same for the right
+        {
+            que1.push(node1->right);
+            que2.push(node2->right);
+        }
+        else if (node1->right != NULL || node2->right != NULL)
+        {
+            return false;
+        }
+    }
+    return true; // run only if tree are identical
+}
 
 int main()
 {

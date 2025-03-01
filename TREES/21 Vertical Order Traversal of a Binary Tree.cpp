@@ -23,7 +23,7 @@ struct TreeNode
 
 vector<vector<int>> verticalTraversal(TreeNode *root)
 {
-    queue<pair<TreeNode *, pair<int, int>>> q; // {TreeNode,{row,col}}
+    queue<pair<TreeNode *, pair<int, int>>> q; // {TreeNode,{col,row}}
     map<int, map<int, multiset<int>>> mp;      // col -> {row :  [x,y,z.....]}
     q.push({root, {0, 0}});
     while (!q.empty())
@@ -31,27 +31,35 @@ vector<vector<int>> verticalTraversal(TreeNode *root)
         auto p = q.front();
         q.pop();
         TreeNode *&node = p.first;
-        // x -> row , y -> col
-        int &x = p.second.first, &y = p.second.second;
-        mp[y][x].insert(node->data);
+        // x -> col , y -> row
+        int x = p.second.first, y = p.second.second;
+        mp[x][y].insert(node->data);
         if (node->left)
         {
-            q.push({node->left, {x + 1, y - 1}});
+            q.push({node->left, {x - 1, y + 1}});
         }
         if (node->right)
         {
             q.push({node->right, {x + 1, y + 1}});
         }
     }
+    // visuale representation of the map
+    // {
+    //     -2: { 2: {4} },
+    //     -1: { 1: {2} },
+    //      0: { 0: {1}, 2: {5, 6} },
+    //      1: { 1: {3} },
+    //      2: { 2: {7} }
+    // }
     vector<vector<int>> ans;
     for (auto &p : mp)
     {
-        vector<int> col;
+        vector<int> level;
         for (auto &q : p.second)
         {
-            col.insert(col.end(), q.second.begin(), q.second.end());
+            level.insert(level.end(), q.second.begin(), q.second.end());
         }
-        ans.push_back(col);
+        ans.push_back(level);
     }
     return ans;
 }
@@ -77,14 +85,21 @@ int main()
     vector<vector<int>> result = verticalTraversal(root);
 
     // Printing the result
-    for (auto col : result)
+    cout << "[";
+    for (size_t i = 0; i < result.size(); i++)
     {
-        for (int val : col)
+        cout << "[";
+        for (size_t j = 0; j < result[i].size(); j++)
         {
-            cout << val << " ";
+            cout << result[i][j];
+            if (j != result[i].size() - 1)
+                cout << ", ";
         }
-        cout << endl;
+        cout << "]";
+        if (i != result.size() - 1)
+            cout << ", ";
     }
+    cout << "]";
 
     return 0;
 }

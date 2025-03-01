@@ -21,6 +21,8 @@ struct node
     }
 };
 
+// TC O(N)
+// SC O(N)
 int solve(node *root, int &pathSum)
 {
     if (root == NULL)
@@ -54,7 +56,7 @@ int main()
     root->right = new node(3);
     root->left->left = new node(4);
     root->left->right = new node(5);
-    cout<<maxPathSum(root);
+    cout << maxPathSum(root);
     //    Constructing the following tree:
     //               1
     //            /    \
