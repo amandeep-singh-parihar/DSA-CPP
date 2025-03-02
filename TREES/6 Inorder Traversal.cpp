@@ -55,44 +55,48 @@ vector<int> _inorder(node *root)
     return ans;
 }
 
-// Morris
+// Morris Traversal
 // TC O(N)
 // SC O(1)
 vector<int> __inorder(node *root)
 {
-    vector<int> ans;
+    vector<int> inorder;
     if (!root)
-        return ans;
+        return inorder;
     node *curr = root;
     while (curr != NULL)
     {
+        // If there is no left subtree, print the current node and move right
         if (curr->left == NULL)
         {
-            ans.push_back(curr->data);
+            inorder.push_back(curr->data);
             curr = curr->right;
         }
         else
         {
-            node *leftChild = curr->left;
-            while (leftChild->right && leftChild->right != curr)
+            // Find the inorder predecessor of the current node
+            node *prev = curr->left;
+            while (prev->right && prev->right != curr)
             {
-                leftChild = leftChild->right;
+                prev = prev->right;
             }
 
-            if (leftChild->right == NULL)
+            // If the right child of predecessor is NULL, create a temporary link
+            if (prev->right == NULL)
             {
-                leftChild->right = curr;
-                curr = curr->left;
+                prev->right = curr; // Threading
+                curr = curr->left;       // Move to the left subtree
             }
+            // If the link already exists, remove it and process the current node
             else
             {
-                leftChild->right = NULL;
-                ans.push_back(curr->data);
-                curr = curr->right;
+                prev->right = NULL;   // Remove the thread
+                inorder.push_back(curr->data); // Process current node
+                curr = curr->right;        // Move to the right subtree
             }
         }
     }
-    return ans;
+    return inorder;
 }
 
 int main()

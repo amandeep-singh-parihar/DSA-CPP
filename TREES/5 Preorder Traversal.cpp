@@ -54,41 +54,48 @@ vector<int> _preorder(node *root)
     }
     return ans;
 }
-// Morris
+// Morris Traversal
+// TC O(N)
+// SC O(1)
 vector<int> __preorder(node *root)
 {
-    vector<int> ans;
+    vector<int> preorder;
     if (!root)
-        return ans;
+        return preorder;
     node *curr = root;
     while (curr != NULL)
     {
+        // If no left child, print the current node and move right
         if (curr->left == NULL)
         {
-            ans.push_back(curr->data);
+            preorder.push_back(curr->data);
             curr = curr->right;
         }
         else
         {
-            node *leftChild = curr->left;
-            while (leftChild->right != NULL && leftChild->right != curr)
+            // Find the inorder predecessor of the current node
+            node *prev = curr->left;
+            while (prev->right != NULL && prev->right != curr)
             {
-                leftChild = leftChild->right;
+                prev = prev->right;
             }
-            if (leftChild->right == NULL)
+
+            // If the right child of predecessor is NULL, create a temporary link
+            if (prev->right == NULL)
             {
-                leftChild->right = curr;
-                ans.push_back(curr->data);
-                curr = curr->left;
+                prev->right = curr;             // Threading
+                preorder.push_back(curr->data); // Process current node
+                curr = curr->left;              // Move to the left subtree
             }
+            // If the link already exists, remove it and move right
             else
             {
-                leftChild->right = NULL;
-                curr = curr->right;
+                prev->right = NULL; // Remove the thread
+                curr = curr->right; // Move to the right subtree
             }
         }
     }
-    return ans;
+    return preorder;
 }
 
 int main()
@@ -111,10 +118,10 @@ int main()
     cout << endl;
 
     cout << "Morris" << endl;
-    vector<int>_ans=__preorder(root);
-    for(int _i=0;_i<_ans.size();++_i)
+    vector<int> _ans = __preorder(root);
+    for (int _i = 0; _i < _ans.size(); ++_i)
     {
-        cout<<_ans[_i]<<" ";
+        cout << _ans[_i] << " ";
     }
     cout << endl;
     return 0;

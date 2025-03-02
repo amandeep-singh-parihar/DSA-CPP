@@ -20,23 +20,25 @@ struct TreeNode
     }
 };
 
+// TC O(N)
+// SC O(N)
 void flatten(TreeNode *root)
 {
     if (!root)
     {
         return;
     }
-    TreeNode *dummy = NULL;
-    stack<TreeNode *> st;
-    st.push(root);
+    TreeNode *dummy = NULL; // create a dummy node
+    stack<TreeNode *> st;   // a stack of TreeNode
+    st.push(root);          // push the root
     while (!st.empty())
     {
         TreeNode *node = st.top();
         st.pop();
-        if (dummy != NULL)
+        if (dummy != NULL) // if the dummy is not null
         {
-            dummy->right = node;
-            dummy->left = NULL;
+            dummy->right = node; // connect the dummy's right to the node
+            dummy->left = NULL;  // connect the dummy's left to the NULL
         }
         if (node->right)
         {
@@ -50,7 +52,9 @@ void flatten(TreeNode *root)
     }
 }
 
-// Morris
+// Morris Traversal
+// TC O(N)
+// SC O(1)
 void _flatten(TreeNode *root)
 {
     if (!root)

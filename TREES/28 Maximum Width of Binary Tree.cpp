@@ -20,41 +20,44 @@ struct TreeNode
         left = right = nullptr;
     }
 };
+
+// TC O(N) -> level order traversal
+// SC O(N) -> using a queue
 #define ll long long
 int widthOfBinaryTree(TreeNode *root)
 {
     if (root == NULL)
         return 0;
-    int ans = 0;
-    queue<pair<TreeNode *, ll>> q;
+    int maxWidth = 0;
+    queue<pair<TreeNode *, ll>> q; // {root,index}
     q.push({root, 0});
-    while (!q.empty())
+    while (!q.empty()) // till the q is not empty
     {
-        int size = q.size();
-        ll mmin = q.front().second;
-        int last, first;
+        int size = q.size();           // get the size as I want to traverse the whole level
+        ll minimum = q.front().second; // take the minimum as the second of the front (to make the current index 0)
+        int last, first;               // create first and last to get the maxWidth
         for (int i = 0; i < size; ++i)
         {
-            ll curr_id = q.front().second - mmin;
+            ll index = q.front().second - minimum;
             TreeNode *node = q.front().first;
             q.pop();
 
-            if (i == 0)
-                first = curr_id;
-            if (i == size - 1)
-                last = curr_id;
-            if (node->left)
+            if (i == 0) // it means I am at the first node
+                first = index;
+            if (i == size - 1) // it means I am at the last node
+                last = index;
+            if (node->left) // if there exists node's left
             {
-                q.push({node->left, curr_id * 2 + 1});
+                q.push({node->left, index * 2 + 1});
             }
-            if (node->right)
+            if (node->right) // if there exists node's right
             {
-                q.push({node->right, curr_id * 2 + 2});
+                q.push({node->right, index * 2 + 2});
             }
         }
-        ans = max(ans, (int)(last - first + 1));
+        maxWidth = max(maxWidth, (int)(last - first + 1)); // calculate the maxWidth
     }
-    return ans;
+    return maxWidth;
 }
 
 int main()

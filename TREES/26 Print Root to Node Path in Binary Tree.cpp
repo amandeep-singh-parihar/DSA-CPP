@@ -24,23 +24,23 @@ struct TreeNode
 // T.C O(N)
 bool getPath(TreeNode *root, vector<int> &ans, int target)
 {
-    if (root == NULL)
+    if (root == NULL) // if the root is NULL just return false
         return false;
 
-    ans.push_back(root->data);
+    ans.push_back(root->data); // add the curret node to the ans vector
 
-    if (root->data == target)
+    if (root->data == target) // if the root is the target return true
     {
         return true;
     }
 
-    if (getPath(root->left, ans, target) || getPath(root->right, ans, target))
+    if (getPath(root->left, ans, target) || getPath(root->right, ans, target)) // if any of the left or right get the true. It means that we found the target either on the left or on the right . hence return true here also.
     {
         return true;
     }
 
-    ans.pop_back();
-    return false;
+    ans.pop_back(); // now if we don't find the target remove the element
+    return false; // return false on not finding the target
 }
 vector<int> solve(TreeNode *root, int target)
 {

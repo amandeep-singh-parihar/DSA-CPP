@@ -22,6 +22,8 @@ struct TreeNode
     }
 };
 
+// TC O(N)
+// SC O(H) if skew O(N)
 void isSumProperty(TreeNode *root)
 {
     if (root == NULL)

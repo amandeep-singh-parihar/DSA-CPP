@@ -1,3 +1,4 @@
+// 297. Serialize and Deserialize Binary Tree
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -86,39 +87,39 @@ TreeNode *deserialize(string data)
     return root;
 }
 
-// string _serialize(TreeNode *root)
-// {
-//     string s = "";
-//     if (!root)
-//         return "";
-//     queue<TreeNode *> q;
-//     q.push(root);
-//     s.append(to_string(root->val) + ",");
-//     while (!q.empty())
-//     {
-//         TreeNode *node = q.front();
-//         q.pop();
-//         if (node->left)
-//         {
-//             q.push(node->left);
-//             s.append(to_string(node->left->val) + ',');
-//         }
-//         else
-//         {
-//             s.append("#,");
-//         }
-//         if (node->right)
-//         {
-//             q.push(node->right);
-//             s.append(to_string(node->right->val) + ',');
-//         }
-//         else
-//         {
-//             s.append("#,");
-//         }
-//     }
-//     return s;
-// }
+string _serialize(TreeNode *root)
+{
+    string s = "";
+    if (!root)
+        return "";
+    queue<TreeNode *> q;
+    q.push(root);
+    s.append(to_string(root->val) + ",");
+    while (!q.empty())
+    {
+        TreeNode *node = q.front();
+        q.pop();
+        if (node->left)
+        {
+            q.push(node->left);
+            s.append(to_string(node->left->val) + ',');
+        }
+        else
+        {
+            s.append("#,");
+        }
+        if (node->right)
+        {
+            q.push(node->right);
+            s.append(to_string(node->right->val) + ',');
+        }
+        else
+        {
+            s.append("#,");
+        }
+    }
+    return s;
+}
 
 int main()
 {
@@ -130,7 +131,6 @@ int main()
     root->left->right = new TreeNode(5);
     root->right->left = new TreeNode(6);
     root->right->right = new TreeNode(7);
-
 
     // Serializing the tree
     string serializedTree = serialize(root);

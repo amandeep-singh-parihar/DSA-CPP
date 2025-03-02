@@ -30,17 +30,17 @@ void markParent(TreeNode *root, unordered_map<TreeNode *, TreeNode *> &parent_tr
     q.push(root);        // push the root in the tree
     while (!q.empty())   // traverse till the q will become empty
     {
-        TreeNode *current = q.front(); // take the first element from the queue
+        TreeNode *node = q.front(); // take the first element from the queue
         q.pop();                       // pop that element from the queue
-        if (current->left)             // if there exists a left
+        if (node->left)             // if there exists a left
         {
-            parent_track[current->left] = current; // map it with his parent 5->3...
-            q.push(current->left);                 // now push the element in the map for traversal
+            parent_track[node->left] = node; // map it with his parent 5->3...
+            q.push(node->left);                 // now push the element in the map for traversal
         }
-        if (current->right) // if there exists a right
+        if (node->right) // if there exists a right
         {
-            parent_track[current->right] = current; // map it with his raprent 1->3...
-            q.push(current->right);                 // now push the element in the map for traversal
+            parent_track[node->right] = node; // map it with his raprent 1->3...
+            q.push(node->right);                 // now push the element in the map for traversal
         }
     }
     // Parent Map:

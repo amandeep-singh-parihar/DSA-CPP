@@ -23,7 +23,7 @@ struct TreeNode
 
 // SAME AS BT
 // TC O(N)
-// SC
+// SC ->
 // O(H), where H is the height of the tree.
 // O(log N) for a balanced tree (recursion depth = tree height).
 // O(N) for a skewed tree (recursion depth = number of nodes).

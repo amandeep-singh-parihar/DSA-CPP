@@ -20,6 +20,8 @@ struct TreeNode
         left = right = nullptr;
     }
 };
+// TC O(N)
+// SC O(N)
 TreeNode *buildTreeHelper(vector<int> &postorder, int postStart, int postEnd, vector<int> &inorder, int inStart, int inEnd, map<int, int> &inMap)
 {
     if (postStart > postEnd || inStart > inEnd)
