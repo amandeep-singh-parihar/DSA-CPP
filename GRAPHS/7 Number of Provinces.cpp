@@ -18,7 +18,7 @@ void dfs(int node, vector<vector<int>> &adjLs, vector<int> &vis)
     {
         if (!vis[it])
         {
-            dfs(node, adjLs, vis);
+            dfs(it, adjLs, vis);
         }
     }
 }
@@ -57,5 +57,11 @@ int findCircleNum(vector<vector<int>> &isConnected)
 
 int main()
 {
+    vector<vector<int>> isConnected = {
+        {1, 1, 0},
+        {1, 1, 0},
+        {0, 0, 1}};
+
+    cout << "Number of Provinces: " << findCircleNum(isConnected) << "\n";
     return 0;
 }

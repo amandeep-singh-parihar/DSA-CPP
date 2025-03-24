@@ -27,7 +27,7 @@ bool detect(int src, vector<vector<int>> &adj, vector<int> &vis)
                 vis[adjacentNode] = 1;        // mark it 1
                 q.push({adjacentNode, node}); // and push it in the queue
             }
-            else if (parent != adjacentNode) // if the adjacent node is market as 1 so check if it is parent if it is parent then no problem , but if it is not parent then how it is marked already -> cycle
+            else if (parent != adjacentNode) // if the adjacent node is marked as 1 so check if it is parent if it is parent then no problem , but if it is not parent then how it is marked already -> cycle
             {
                 return true;
             }
