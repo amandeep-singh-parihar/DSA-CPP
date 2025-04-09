@@ -6,7 +6,7 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
-//revision
+// revision 2
 void print(int n)
 {
     if (n == 0)
@@ -14,9 +14,9 @@ void print(int n)
         return;
     }
 
-    cout<<n<<" ";
+    cout << n << " ";
 
-    print(n-1);
+    print(n - 1);
 }
 
 int main()

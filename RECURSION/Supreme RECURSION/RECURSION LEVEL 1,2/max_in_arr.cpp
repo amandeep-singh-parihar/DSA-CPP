@@ -7,7 +7,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-//revision 1
+//revision 2
 
 // int maxi(int arr[],int n)
 // {
@@ -36,21 +36,34 @@ void findMax(int arr[],int n,int i,int& maxi)
     findMax(arr,n,i+1,maxi);
 }
 
-int main()
-{
-    int n;
-    cin>>n;
+int maxi(int arr[],int n,int i,int _maxi){
+    if(i>=n) return _maxi;
 
-    int arr[n];
-    for(int i=0;i<n;++i)
-    {
-        cin>>arr[i];
-    }
-    // cout<<maxi(arr,n);
-    int i=0;
-    int maxi=INT_MIN;
-    findMax(arr,n,i,maxi);
-    cout<<maxi;
+    if(arr[i]>=_maxi) _maxi=max(_maxi,arr[i]);
 
-    return 0;
+    return maxi(arr,n,i+1,_maxi);
 }
+
+int main(){
+    int arr[5]={1,2,30,-1,10};
+    cout<<maxi(arr,5,0,INT_MIN);
+}
+
+// int main()
+// {
+//     int n;
+//     cin>>n;
+
+//     int arr[n];
+//     for(int i=0;i<n;++i)
+//     {
+//         cin>>arr[i];
+//     }
+//     // cout<<maxi(arr,n);
+//     int i=0;
+//     int maxi=INT_MIN;
+//     findMax(arr,n,i,maxi);
+//     cout<<maxi;
+
+//     return 0;
+// }

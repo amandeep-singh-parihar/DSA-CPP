@@ -1,3 +1,4 @@
+// Reverse a stack
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -7,7 +8,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-// revision 1
+// revision 2
 
 void insert_at_bottom(stack<int> &s, int target)
 {

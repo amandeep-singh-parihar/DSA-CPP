@@ -1,3 +1,4 @@
+// binary search using recursion
 #include<bits/stdc++.h>
 using namespace std;
 // static const bool __boost = []()

@@ -1,20 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
-// static const bool __boost = []()
-// {
-//     cin.tie(nullptr);
-//     cout.tie(nullptr);
-//     return ios_base::sync_with_stdio(false);
-// }();
+static const bool __boost = []()
+{
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return ios_base::sync_with_stdio(false);
+}();
 
-//revision 1
+//revision 2
 int fact(int n)
 {
     //base case
-    if(n==1)
-    {
-        return 1;
-    }
+    if(n==1) return 1;
 
     return n*fact(n-1);
 }

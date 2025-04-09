@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+// count digits
+#include <bits/stdc++.h>
 using namespace std;
 
 static const bool __boost = []()
@@ -8,19 +9,20 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-//revision 1
+// revision 2
 
 int digit(int n)
 {
-    if(n==0) return 0;
+    if (n == 0)
+        return 0;
 
-    return 1+digit(n/10);
+    return 1 + digit(n / 10);
 }
 
 int main()
 {
     int n;
-    cin>>n;
-    cout<<digit(n);
+    cin >> n;
+    cout << digit(n);
     return 0;
 }

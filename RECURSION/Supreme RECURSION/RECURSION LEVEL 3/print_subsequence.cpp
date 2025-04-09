@@ -1,11 +1,11 @@
-//INCLUDE EXCLUDE PATTERN
-//INCLUDE EXCLUDE PATTERN
-//INCLUDE EXCLUDE PATTERN
-//INCLUDE EXCLUDE PATTERN
-//INCLUDE EXCLUDE PATTERN
-//INCLUDE EXCLUDE PATTERN
+// INCLUDE EXCLUDE PATTERN
+// INCLUDE EXCLUDE PATTERN
+// INCLUDE EXCLUDE PATTERN
+// INCLUDE EXCLUDE PATTERN
+// INCLUDE EXCLUDE PATTERN
+// INCLUDE EXCLUDE PATTERN
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
 {
@@ -14,29 +14,31 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-void print(string str,string output,int i)
+// revision 1
+
+void print(string str, string output, int i)
 {
-    if(i>=str.length())
+    if (i >= str.length())
     {
-        cout<<output<<" ";
+        cout << output << " ";
         return;
     }
 
-    //exclude
-    print(str,output,i+1);
-
-    //include
+    // include
     output.push_back(str[i]);
-    print(str,output,i+1);
-    
+    print(str, output, i + 1);
+    output.pop_back();
+
+    // exclude
+    print(str, output, i + 1);
 }
 
 int main()
 {
-    string str="abc";
-    string output="";
-    int i=0;
-    print(str,output,i);
+    string str = "abc";
+    string output = "";
+    int i = 0;
+    print(str, output, i);
 
     return 0;
 }

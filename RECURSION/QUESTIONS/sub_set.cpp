@@ -10,7 +10,6 @@ void solve(vector<int> arr,vector<int> output,int index,vector<vector<int>>& ans
         return ;
     }
     solve(arr,output,index+1,ans);//excluding
-
     output.push_back(arr[index]);
     solve(arr,output,index+1,ans);//including
     output.pop_back();

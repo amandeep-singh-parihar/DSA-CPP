@@ -1,26 +1,26 @@
-//delete middle element from stack
+// delete middle element from stack
 #include <bits/stdc++.h>
 using namespace std;
 
-//revision 1
+// revision 1
 
-void delete_Middle(stack<int>& s, int tsize)
+void delete_Middle(stack<int> &s, int tsize)
 {
-    if(s.size()==0)
-    {   
-        cout<<"stack is empty"<<endl;
+    if (s.size() == 0)
+    {
+        cout << "stack is empty" << endl;
         return;
     }
 
-    if(s.size()==(tsize/2)+1)
+    if (s.size() == (tsize / 2) + 1)
     {
         s.pop();
         return;
     }
 
-    int target=s.top();
+    int target = s.top();
     s.pop();
-    delete_Middle(s,tsize);
+    delete_Middle(s, tsize);
     s.push(target);
 }
 

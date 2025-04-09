@@ -7,6 +7,8 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// revision 1
+
 bool solve(string str, int i, int j)
 {
     if (i > j)
@@ -27,11 +29,11 @@ int main()
     int j = str.size() - 1;
     if (solve(str, i, j))
     {
-        cout << "The given string " << "'" << str << "'" << " is palindrome"<<endl;
+        cout << "The given string " << "'" << str << "'" << " is palindrome" << endl;
     }
     else
     {
-        cout << "The given string " << "'" << str << "'" << " is not palindrome"<<endl;
+        cout << "The given string " << "'" << str << "'" << " is not palindrome" << endl;
     }
 
     return 0;

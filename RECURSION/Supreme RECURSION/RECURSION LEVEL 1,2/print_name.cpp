@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
 {
@@ -14,28 +14,27 @@ static const bool __boost = []()
 //     cout<<name<<endl;
 //     print(name,n-1);
 
-
 // }
 
-void print2(int i,int n)
+void print2(int i, int n)
 {
-    if(i>n)
+    if (i > n)
         return;
 
-    cout<<"aman"<<endl;
+    cout << "aman" << endl;
 
-    print2(i+1,n);
+    print2(i + 1, n);
 }
 
 int main()
 {
     // string name;
     // cin>>name;
-    cout<<"****************"<<endl;
+    cout << "****************" << endl;
     // print(name,5);
 
-    int i,n;
-    cin>>i>>n;
-    print2(i,n);
+    int i, n;
+    cin >> i >> n;
+    print2(i, n);
     return 0;
 }
