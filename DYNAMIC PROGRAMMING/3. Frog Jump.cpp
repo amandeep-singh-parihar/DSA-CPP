@@ -37,6 +37,27 @@ int minCost(vector<int> &height)
 }
 
 // Tabulation
+// TC O(N)
+// SC O(N)
+int __minCost(vector<int> &height)
+{
+    int n = height.size();
+    vector<int> dp(n + 1, -1);
+    dp[0] = 0;
+    dp[1] = abs(height[1] - height[0]);
+
+    for (int i = 2; i < n; ++i)
+    {
+        int left = dp[i - 1] + abs(height[i] - height[i - 1]);
+        int right = dp[i - 2] + abs(height[i] - height[i - 2]);
+        dp[i] = min(left, right);
+    }
+
+    return dp[n - 1];
+}
+// Tabulation (space optimization)
+// TC O(N)
+// SC O(1)
 int _minCost(vector<int> &height)
 {
     int n = height.size();

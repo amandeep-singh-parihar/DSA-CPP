@@ -8,6 +8,8 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Revision 1
+
 // Memoization
 // TC O(N)
 // SC O(N) + O(N)
