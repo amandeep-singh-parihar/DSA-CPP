@@ -8,7 +8,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-// Revision 1
+// Revision 2
 
 // Memoization
 // TC O(N*k)

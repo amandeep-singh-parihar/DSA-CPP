@@ -8,7 +8,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-// Revision 1
+// Revision 2
 
 // Memoization
 // TC O(N)
@@ -61,10 +61,37 @@ int _rob(vector<int> &nums)
 
     return dp[n - 1];
 }
+
+// Space Optimizatino
+// TC O(N)
+// SC O(1)
+int __rob(vector<int> &nums)
+{
+    int n = nums.size();
+
+    if (n == 1)
+        return nums[0];
+
+    vector<int> dp(n + 1, 0);
+    int prev2 = nums[0];
+    int prev1 = max(nums[0], nums[1]);
+    for (int i = 2; i < n; ++i)
+    {
+        int take = nums[i] + prev2;
+        int notTake = prev1;
+        int curr = max(take, notTake);
+        prev2 = prev1;
+        prev1 = curr;
+    }
+    return prev1;
+}
+
 int main()
 {
     vector<int> nums = {2, 7, 9, 3, 1};
     cout << rob(nums) << endl;
     cout << _rob(nums) << endl;
+    cout << __rob(nums) << endl;
+
     return 0;
 }
