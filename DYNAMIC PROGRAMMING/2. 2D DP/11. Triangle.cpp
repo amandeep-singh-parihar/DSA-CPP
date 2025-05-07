@@ -8,6 +8,8 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Revision 1
+
 // Memoization
 // TC O(N^2)
 // SC O(N^2)
@@ -54,8 +56,35 @@ int _minimumTotal(vector<vector<int>> &triangle)
         }
     }
     return dp[0][0];
-    // so if the memoization is from bottom to up of the tabulation must be from top to bottom 
-    // inverse of memoization here we go from n-2 to 0
+    // so if the memoization is from bottom to up then the tabulation must be from top to bottom
+    // inverse of memoization here we go from n-2 to 0 , n-2 because if run a loop reverse start from n-1,
+    // here i+1 is the term if i go from n-1 then at a condition n-1+1 = n out of bound so go from n-2.
+}
+
+// Space optimization
+// TC O(M*N)
+// SC O(N)
+int __minimumTotal(vector<vector<int>> &triangle)
+{
+    int n = triangle.size();
+    vector<int> front(n, 1e9), curr(n, 1e9);
+
+    for (int col = 0; col < n; ++col)
+    {
+        front[col] = triangle[n - 1][col];
+    }
+
+    for (int row = n - 2; row >= 0; --row)
+    {
+        for (int col = row; col >= 0; --col)
+        {
+            int down = front[col];
+            int diagonal = front[col + 1];
+            curr[col] = triangle[row][col] + min(down, diagonal);
+        }
+        front = curr;
+    }
+    return front[0];
 }
 
 int main()
@@ -64,6 +93,6 @@ int main()
                                     {3, 4},
                                     {6, 5, 7},
                                     {4, 1, 8, 3}};
-    cout << minimumTotal(triangle);
+    cout << __minimumTotal(triangle);
     return 0;
 }

@@ -8,13 +8,18 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Revision 1
+
 // Memoization (TLE on leetcode)
 // O(N*N)
 // O(N*N) + O(N)
 int f(int i, int j, vector<vector<int>> &matrix, vector<vector<int>> &dp, int n)
 {
-    if (j < 0 || j > n - 1)
+    // Base case 1
+    if (j < 0 || j > n - 1) // <- this condition must be before the below one because if this don't come first then might j can take values like -2(col) then the below condition calculate for matrix[0][-2] which is heap buffer overflow. So this condition must come before the Base case 2
         return INT_MAX;
+
+    // Base case 2
     if (i == 0)
         return matrix[0][j];
 
@@ -54,6 +59,7 @@ int _minFallingPathSum(vector<vector<int>> &matrix)
         dp[0][j] = matrix[0][j];
     }
 
+    // must be reverse of memoization
     for (int i = 1; i < n; ++i)
     {
         for (int j = 0; j < n; ++j)

@@ -8,6 +8,8 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Revision 1
+
 // Memoization
 // TC O(M*N)
 // SC O(M*N) + (M-1) + (N-1)
@@ -65,11 +67,50 @@ int _minPathSum(vector<vector<int>> &grid)
     return dp[m - 1][n - 1];
 }
 
+// Space Optimization
+// TC O(M*N)
+// SC O(N+N) -> O(2N) -> O(N)
+int __minPathSum(vector<vector<int>> &grid)
+{
+    int m = grid.size();
+    int n = grid[0].size();
+
+    // dp
+    vector<int> prev(n, INT_MAX), curr(n, INT_MAX);
+
+    for (int row = 0; row < m; ++row)
+    {
+        for (int col = 0; col < n; ++col)
+        {
+            if (row == 0 && col == 0)
+            {
+                curr[col] = grid[0][0];
+            }
+            else if (row < 0 || col < 0)
+            {
+                curr[col] = 1e9;
+            }
+            else
+            {
+                int up = INT_MAX;
+                int left = INT_MAX;
+                if (row > 0)
+                    up = prev[col];
+                if (col > 0)
+                    left = curr[col - 1];
+                curr[col] = grid[row][col] + min(left, up);
+            }
+        }
+        prev = curr;
+    }
+    return prev[n - 1];
+}
+
 int main()
 {
     vector<vector<int>> grid = {{1, 3, 1},
                                 {1, 5, 1},
                                 {4, 2, 1}};
-    cout << _minPathSum(grid);
+    cout << __minPathSum(grid);
     return 0;
 }

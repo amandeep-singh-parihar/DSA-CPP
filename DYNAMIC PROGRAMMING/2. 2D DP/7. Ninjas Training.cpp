@@ -8,7 +8,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-// Revision needed
+// Revision 1
 
 // Memoization
 // TC O(N*4*3)
@@ -28,6 +28,7 @@ int f(int day, int lastTask, vector<vector<int>> &points, vector<vector<int>> &d
         return maxi;
     }
 
+    // dp check
     if (dp[day][lastTask] != -1)
         return dp[day][lastTask];
 
@@ -47,7 +48,16 @@ int f(int day, int lastTask, vector<vector<int>> &points, vector<vector<int>> &d
 int ninjaTraining(int n, vector<vector<int>> &points)
 {
     vector<vector<int>> dp(n, vector<int>(4, -1));
-    return f(n - 1, 3, points, dp); // 3 means no task done yet
+    int ans = f(n - 1, 3, points, dp); // 3 means no task done yet
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < 4; ++j)
+        {
+            cout << dp[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return ans;
 }
 
 // Tabulation
@@ -55,7 +65,7 @@ int ninjaTraining(int n, vector<vector<int>> &points)
 // SC O(N*4)
 int _ninjaTraining(int n, vector<vector<int>> &points)
 {
-    vector<vector<int>> dp(n, vector<int>(4, -1));
+    vector<vector<int>> dp(n, vector<int>(4, 0));
     dp[0][0] = max(points[0][1], points[0][2]);
     dp[0][1] = max(points[0][0], points[0][2]);
     dp[0][2] = max(points[0][0], points[0][1]);
@@ -64,7 +74,7 @@ int _ninjaTraining(int n, vector<vector<int>> &points)
     {
         for (int lastTask = 0; lastTask <= 3; ++lastTask)
         {
-            dp[day][lastTask] = 0;
+            // dp[day][lastTask] = 0;
             for (int task = 0; task <= 2; ++task)
             {
                 if (task != lastTask)
@@ -78,9 +88,9 @@ int _ninjaTraining(int n, vector<vector<int>> &points)
     return dp[n - 1][3];
 }
 
-// Space optimization
-// TC O(N*4*3)
-// SC O(4) = O(1)
+// // Space optimization -> pending revision
+// // TC O(N*4*3)
+// // SC O(4) = O(1)
 int __ninjaTraining(int n, vector<vector<int>> &points)
 {
     vector<int> dp(4, -1);
@@ -109,6 +119,11 @@ int __ninjaTraining(int n, vector<vector<int>> &points)
 
 int main()
 {
+    vector<vector<int>> points = {{10, 40, 70},
+                                  {20, 50, 80},
+                                  {30, 60, 90}};
+
+    cout << __ninjaTraining(3, points);
 
     return 0;
 }
