@@ -7,6 +7,8 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// revision 1
+
 class node
 {
 public:

@@ -8,8 +8,11 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Revision 1
+
 // Brute -> Generate all subarrays and calculate sum of all and when the sum is equal to
 // the k take that length and compare it is long or not
+
 // TC O(N^3)
 // SC O(1)
 int longestSubarrayWithSumK(vector<int> a, long long k)
@@ -33,6 +36,7 @@ int longestSubarrayWithSumK(vector<int> a, long long k)
     return len;
 }
 
+// Better Brute
 // TC O(N^2)
 // SC O(1)
 int _longestSubarrayWithSumK(vector<int> a, long long k)
@@ -98,12 +102,12 @@ int __longestSubarrayWithSumK(vector<int> a, long long k)
 int ___longestSubarrayWithSumK(vector<int> nums, long long k)
 {
     int left = 0, right = 0;
-    long long sum = nums[0];
+    long long sum = 0;
     int maxLen = 0;
     while (right < nums.size())
     {
-        if (right < nums.size())
-            sum += nums[right]; // Add the current element to sum
+
+        sum += nums[right]; // Add the current element to sum
 
         // Shrink the window from the left if sum exceeds k
         while (left <= right && sum > k)

@@ -6,7 +6,10 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
+
 // reverse linked list using recursion
+// revision 1
+
 class node
 {
 public:

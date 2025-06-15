@@ -13,6 +13,8 @@ public:
     }
 };
 
+// revision 1
+
 node *reversll(node *&head)
 {
     // head==null matlab ek he kuch ha he ne

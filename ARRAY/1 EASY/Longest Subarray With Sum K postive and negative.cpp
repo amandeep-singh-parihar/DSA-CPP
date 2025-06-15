@@ -7,6 +7,9 @@ static const bool __boost = []()
     cout.tie(nullptr);
     return ios_base::sync_with_stdio(false);
 }();
+
+// Revision 1
+
 #define ll long long
 
 // Brute
