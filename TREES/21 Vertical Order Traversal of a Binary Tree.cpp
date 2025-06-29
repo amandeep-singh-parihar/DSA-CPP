@@ -1,6 +1,7 @@
 // 987. Vertical Order Traversal of a Binary Tree
 #include <bits/stdc++.h>
 using namespace std;
+// revision 1
 static const bool __boost = []()
 {
     cin.tie(nullptr);
@@ -31,16 +32,15 @@ vector<vector<int>> verticalTraversal(TreeNode *root)
         auto p = q.front();
         q.pop();
         TreeNode *&node = p.first;
-        // x -> col , y -> row
-        int x = p.second.first, y = p.second.second;
-        mp[x][y].insert(node->data);
+        int col = p.second.first, row = p.second.second;
+        mp[col][row].insert(node->data);
         if (node->left)
         {
-            q.push({node->left, {x - 1, y + 1}});
+            q.push({node->left, {col - 1, row + 1}});
         }
         if (node->right)
         {
-            q.push({node->right, {x + 1, y + 1}});
+            q.push({node->right, {col + 1, row + 1}});
         }
     }
     // visuale representation of the map

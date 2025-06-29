@@ -1,7 +1,5 @@
-// Boundary Traversal of Binary Tree
 #include <bits/stdc++.h>
 using namespace std;
-// revision 1
 static const bool __boost = []()
 {
     cin.tie(nullptr);
@@ -18,12 +16,9 @@ struct node
     node(int val)
     {
         data = val;
-        left = right = nullptr;
+        left = right = NULL;
     }
 };
-
-// T.C O(H)+O(H)+O(N) = O(N)
-// S.C O(N)
 
 bool isLeaf(node *root)
 {
@@ -32,6 +27,7 @@ bool isLeaf(node *root)
 
 void addLeftBoundry(node *root, vector<int> &res)
 {
+    // res.push_back(root->left);
     node *curr = root->left;
     while (curr != NULL)
     {
@@ -40,7 +36,7 @@ void addLeftBoundry(node *root, vector<int> &res)
             res.push_back(curr->data);
         }
 
-        if (curr->left != NULL)
+        if (curr->left)
         {
             curr = curr->left;
         }
@@ -50,33 +46,6 @@ void addLeftBoundry(node *root, vector<int> &res)
         }
     }
 }
-
-void addRightBoundry(node *root, vector<int> &res)
-{
-    node *curr = root->right;
-    vector<int> temp;
-    while (curr != NULL)
-    {
-        if (!isLeaf(curr))
-        {
-            temp.push_back(curr->data);
-        }
-
-        if (curr->right != NULL)
-        {
-            curr = curr->right;
-        }
-        else
-        {
-            curr = curr->left;
-        }
-    }
-    for (int i = temp.size() - 1; i >= 0; --i)
-    {
-        res.push_back(temp[i]);
-    }
-}
-
 void addLeaves(node *root, vector<int> &res)
 {
     if (isLeaf(root))
@@ -94,6 +63,32 @@ void addLeaves(node *root, vector<int> &res)
         addLeaves(root->right, res);
     }
 }
+void addRightBoundry(node *root, vector<int> &res)
+{
+    vector<int> level;
+    node *curr = root->right;
+    while (curr != NULL)
+    {
+        if (!isLeaf(curr))
+        {
+            level.push_back(curr->data);
+        }
+
+        if (curr->right)
+        {
+            curr = curr->left;
+        }
+        else
+        {
+            curr = curr->left;
+        }
+    }
+
+    for (int i = level.size() - 1; i >= 0; --i)
+    {
+        res.push_back(level[i]);
+    }
+}
 
 vector<int> traverseBoundary(node *root)
 {
@@ -101,11 +96,12 @@ vector<int> traverseBoundary(node *root)
     if (root == NULL)
         return res;
     if (!isLeaf(root))
+    {
         res.push_back(root->data);
+    }
     addLeftBoundry(root, res);
     addLeaves(root, res);
     addRightBoundry(root, res);
-    return res;
 }
 
 int main()

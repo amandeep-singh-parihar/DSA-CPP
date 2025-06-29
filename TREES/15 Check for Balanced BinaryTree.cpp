@@ -1,6 +1,7 @@
 // 110. Balanced Binary Tree
 #include <bits/stdc++.h>
 using namespace std;
+// revision 2
 static const bool __boost = []()
 {
     cin.tie(nullptr);
@@ -21,8 +22,7 @@ struct node
     }
 };
 
-
-// Naive Approach 
+// Naive Approach
 // T.C O(N*N)
 int _maxDepth(node *root)
 {
@@ -54,7 +54,6 @@ bool _isBalanced(node *root)
 
     return isBalanced(root->left) && isBalanced(root->right); // if reach here it means the root is balanced but doesn't mean every node is balanced as the example is given below in the main so now go for the root's left and root' right recursively
 }
-
 
 // Optimal Approach T.C O(N)
 int dfsHeight(node *root)
