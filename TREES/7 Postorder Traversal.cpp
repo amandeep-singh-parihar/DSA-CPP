@@ -2,6 +2,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// revision 2
+
 struct node
 {
     int data;
