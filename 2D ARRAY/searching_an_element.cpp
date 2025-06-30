@@ -1,14 +1,14 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-bool ispresent(int arr[][4],int target,int row,int col)
+bool ispresent(int arr[][4], int target, int row, int col)
 {
-    for(int i=0;i<row;i++)
+    for (int i = 0; i < row; i++)
     {
-        for(int j=0;j<col;j++)
+        for (int j = 0; j < col; j++)
         {
-            if(arr[i][j]==target)
-            return 1;
+            if (arr[i][j] == target)
+                return 1;
         }
     }
 
@@ -18,20 +18,22 @@ bool ispresent(int arr[][4],int target,int row,int col)
 int main()
 {
     int arr[3][4];
-    for(int i=0;i<3;i++)
+    for (int i = 0; i < 3; i++)
     {
-        for(int j=0;j<4;j++)
+        for (int j = 0; j < 4; j++)
         {
-            cin>>arr[i][j];
+            cin >> arr[i][j];
         }
     }
 
     int target;
-    cin>>target;
-    if(ispresent(arr,target,3,4))
+    cin >> target;
+    if (ispresent(arr, target, 3, 4))
     {
-        cout<<"Element found";
-    }else{
-        cout<<"Element not found";
+        cout << "Element found";
+    }
+    else
+    {
+        cout << "Element not found";
     }
 }

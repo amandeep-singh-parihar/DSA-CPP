@@ -1,51 +1,55 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-void waveForm(int arr[][3],int row,int col)
+vector<int> wavePrint(const vector<vector<int>> &arr)
 {
-    for(int j=0;j<col;j++)
-    {
-        if(j&1)
-        {
-            for(int i=row-1;i>=0;i--)
-            {
-                cout<<arr[i][j]<<" ";
+    int nRows = arr.size();
+    int mCols = arr[0].size();
+    vector<int> ans;
 
-            }
-        }else{
-            for(int i=0;i<row;i++)
+    for (int j = 0; j < mCols; j++)
+    {
+        if (j % 2 == 0)
+        {
+            // Top to bottom
+            for (int i = 0; i < nRows; i++)
             {
-                cout<<arr[i][j]<<" ";
+                ans.push_back(arr[i][j]);
             }
         }
-
+        else
+        {
+            // Bottom to top
+            for (int i = nRows - 1; i >= 0; i--)
+            {
+                ans.push_back(arr[i][j]);
+            }
+        }
     }
+
+    return ans;
 }
 
 int main()
 {
-    int arr[3][3];
-    for(int i=0;i<3;i++)
+    int nRows = 3, mCols = 3;
+    vector<vector<int>> arr(nRows, vector<int>(mCols));
+
+    for (int i = 0; i < nRows; i++)
     {
-        for(int j=0;j<3;j++)
+        for (int j = 0; j < mCols; j++)
         {
-            cin>>arr[i][j];
+            cin >> arr[i][j];
         }
     }
-    
 
-    //printing array;
-    for(int i=0;i<3;i++)
+    vector<int> result = wavePrint(arr);
+
+    for (int val : result)
     {
-        for(int j=0;j<3;j++)
-        {
-            cout<<arr[i][j]<<" ";
-        }
-        cout<<endl;
+        cout << val << " ";
     }
-
-    waveForm(arr,3,3);
-
+    cout << endl;
 
     return 0;
 }
