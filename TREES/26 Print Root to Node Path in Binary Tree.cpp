@@ -22,6 +22,7 @@ struct TreeNode
 
 // Print Root to Node Path in Binary Tree
 // T.C O(N)
+// S.C O(H)
 bool getPath(TreeNode *root, vector<int> &ans, int target)
 {
     if (root == NULL) // if the root is NULL just return false
@@ -40,7 +41,7 @@ bool getPath(TreeNode *root, vector<int> &ans, int target)
     }
 
     ans.pop_back(); // now if we don't find the target remove the element
-    return false; // return false on not finding the target
+    return false;   // return false on not finding the target
 }
 vector<int> solve(TreeNode *root, int target)
 {
@@ -48,7 +49,7 @@ vector<int> solve(TreeNode *root, int target)
     if (root == NULL)
     {
         return ans;
-    }
+    }-
     getPath(root, ans, target);
     return ans;
 }
@@ -124,8 +125,6 @@ int main()
         }
         cout << endl;
     }
-
-    return 0;
 
     return 0;
 }

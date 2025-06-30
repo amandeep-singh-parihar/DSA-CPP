@@ -1,6 +1,7 @@
 // 236. Lowest Common Ancestor of a Binary Tree
 #include <bits/stdc++.h>
 using namespace std;
+// revision 1
 static const bool __boost = []()
 {
     cin.tie(nullptr);
@@ -20,6 +21,51 @@ struct TreeNode
         left = right = nullptr;
     }
 };
+
+// Brute force
+// TC O(N+N)
+// SC O(N+N)
+bool solve(TreeNode *root, vector<TreeNode *> &res, TreeNode *target)
+{
+    if (root == NULL)
+        return false;
+
+    res.push_back(root);
+
+    if (root == target)
+        return true;
+
+    if (solve(root->left, res, target) || solve(root->right, res, target))
+    {
+        return true;
+    }
+
+    res.pop_back();
+    return false;
+}
+TreeNode *_lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
+{
+    vector<TreeNode *> resP;
+    vector<TreeNode *> resQ;
+    solve(root, resP, p);
+    solve(root, resQ, q);
+
+    TreeNode *lca = nullptr;
+
+    int size = min(resP.size(), resQ.size());
+    for (int i = 0; i < size; ++i)
+    {
+        if (resP[i] == resQ[i])
+        {
+            lca = resP[i];
+        }
+        else
+        {
+            break;
+        }
+    }
+    return lca;
+}
 
 // SAME AS BT
 // TC O(N)
