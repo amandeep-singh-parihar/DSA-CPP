@@ -1,7 +1,7 @@
 // 987. Vertical Order Traversal of a Binary Tree
 #include <bits/stdc++.h>
 using namespace std;
-// revision 1
+// revision 2
 static const bool __boost = []()
 {
     cin.tie(nullptr);
