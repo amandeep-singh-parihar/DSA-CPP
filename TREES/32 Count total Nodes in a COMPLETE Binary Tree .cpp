@@ -1,6 +1,7 @@
 // 222. Count Complete Tree Nodes
 #include <bits/stdc++.h>
 using namespace std;
+// revision 1
 static const bool __boost = []()
 {
     cin.tie(nullptr);
@@ -38,37 +39,43 @@ int countNodes(TreeNode *root)
     return dfsCount(root);
 }
 
-
 // TC O(log^2 N)
 // SC O(logN)
-// Logic -> if at any node the height of left subtree is equal to right subtree we calculate the nodes 
+// Logic -> if at any node the height of left subtree is equal to right subtree we calculate the nodes
 // using this formula of 2^h - 1
 // if at any node if the lh and rh is not equal we go down and calculate there
-int leftHeight(TreeNode* node){
+int leftHeight(TreeNode *node)
+{
     int height = 0;
-    while(node){
+    while (node)
+    {
         ++height;
-        node =node->left;
+        node = node->left;
     }
     return height;
 }
 
-int rightHeight(TreeNode* node){
+int rightHeight(TreeNode *node)
+{
     int height = 0;
-    while(node){
+    while (node)
+    {
         ++height;
         node = node->right;
     }
     return height;
 }
 
-int _countNodes(TreeNode* root) {
-    if(root==NULL) return 0;
+int _countNodes(TreeNode *root)
+{
+    if (root == NULL)
+        return 0;
 
     int lh = leftHeight(root);
     int rh = rightHeight(root);
 
-    if(lh == rh) return (1<<lh) -1;
+    if (lh == rh)
+        return (1 << lh) - 1;
 
     return 1 + _countNodes(root->left) + _countNodes(root->right);
 }

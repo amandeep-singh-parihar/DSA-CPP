@@ -22,10 +22,10 @@ struct TreeNode
 };
 
 // TC O(N) + O(N)
-// TC O(N) + O(N) 
+// TC O(N) + O(N)
 void mark_parent(TreeNode *root, unordered_map<TreeNode *, TreeNode *> &parent_tracker, int target, TreeNode *&tgt)
 {
-    queue<TreeNode *> q; // creat the q of TreeNode*
+    queue<TreeNode *> q; // create the q of TreeNode*
     q.push(root);        // push it in the q
     while (!q.empty())   // till the q is not empty
     {
