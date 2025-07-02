@@ -87,14 +87,14 @@ vector<int> __inorder(node *root)
             if (prev->right == NULL)
             {
                 prev->right = curr; // Threading
-                curr = curr->left;       // Move to the left subtree
+                curr = curr->left;  // Move to the left subtree
             }
             // If the link already exists, remove it and process the current node
             else
             {
-                prev->right = NULL;   // Remove the thread
+                prev->right = NULL;            // Remove the thread
                 inorder.push_back(curr->data); // Process current node
-                curr = curr->right;        // Move to the right subtree
+                curr = curr->right;            // Move to the right subtree
             }
         }
     }

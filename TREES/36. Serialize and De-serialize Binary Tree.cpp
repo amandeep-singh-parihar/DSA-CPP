@@ -1,6 +1,7 @@
 // 297. Serialize and Deserialize Binary Tree
 #include <bits/stdc++.h>
 using namespace std;
+// revision 1
 static const bool __boost = []()
 {
     cin.tie(nullptr);
@@ -52,7 +53,7 @@ TreeNode *deserialize(string data)
 
     stringstream s(data);
     string str;
-    getline(s, str, ',');
+    getline(s, str, ','); // syntax  getline(input_stream, target_string, delimiter);
     TreeNode *root = new TreeNode(stoi(str));
     queue<TreeNode *> q;
     q.push(root);
