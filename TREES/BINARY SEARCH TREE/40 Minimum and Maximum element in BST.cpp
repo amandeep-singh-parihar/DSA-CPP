@@ -1,6 +1,7 @@
 // 700. Search in a Binary Search Tree
 #include <bits/stdc++.h>
 using namespace std;
+// revision 1
 static const bool __boost = []()
 {
     cin.tie(nullptr);
@@ -19,6 +20,7 @@ struct TreeNode
     }
 };
 
+// the minimum will always on the left of BST
 int findMin(TreeNode *root)
 {
     if (!root)
@@ -30,6 +32,7 @@ int findMin(TreeNode *root)
     return root->data;
 }
 
+// the maximum will always on the right of BST
 int findMax(TreeNode *root)
 {
     if (!root)
