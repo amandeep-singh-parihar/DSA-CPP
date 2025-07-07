@@ -72,7 +72,7 @@ int orangesRotting(vector<vector<int>> &grid)
                     q.push({i + 1, j});
                 }
             }
-            if (j < m - 1) // check if someoe is exits on the down
+            if (j < m - 1) // check if someone is exits on the down
             {
                 if (grid[i][j + 1] == 1)
                 {

@@ -29,6 +29,7 @@ vector<int> dfsOfGraph(vector<vector<int>> &adj)
     int V = adj.size();       // find the number of vertices
     vector<int> vis(V, 0);    // visited array initialized with 0
     int start = 0;            // Assuming DFS start from node 0
+    // int start = 1;         // if the indexing start with 1
     vector<int> ls;           // List to store the DFS traversal
     dfs(start, adj, vis, ls); // call dfs for the starting node
     return ls;                // return the DFS traversal list

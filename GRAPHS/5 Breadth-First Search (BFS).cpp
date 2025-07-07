@@ -14,6 +14,7 @@ vector<int> bfsOfGraph(vector<vector<int>> &adj)
     int V = adj.size();    // first take the number of nodes
     vector<int> vis(V, 0); // create a vector of size equal to nodes and mark all as 0
     vis[0] = 1;            // mark the 0th index as 1 as if 0 based indexing
+    // vis[1] = 1;         // in case of 1 based indexing
     queue<int> q;          // create a queue
     q.push(0);             // push the 0 in the queue
     vector<int> bfs;       // create a vector which store the value of bfs traversal
@@ -53,6 +54,20 @@ int main()
         {2},       // Node 5 is connected to 2
         {2}        // Node 6 is connected to 2
     };
+
+    // the graph with 1 based indexing
+    // vector<vector<int>> adj = {
+    //     {}, // first must be empty as of 0th index
+    //     {2, 6},
+    //     {1, 3, 4},
+    //     {2},
+    //     {2, 5},
+    //     {4, 8},
+    //     {1, 7, 9},
+    //     {6, 8},
+    //     {5, 7},
+    //     {6}
+    // };
 
     vector<int> bfs = bfsOfGraph(adj);
 

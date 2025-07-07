@@ -8,6 +8,23 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Intuition->
+/* in this question it is said that You have to mark the O to X if it is completly surronded by the
+X or not.
+
+like in the example
+
+-> So what I will do, lets start from the boundry of the board, first row,last row, first col,last col
+-> and got any O then convert it into anything like '#' now also run the dfs from this point
+-> if it is connect to anyone mark it also '#' as the also will run in DFS (DEPTH)
+-> after all the operations done You travers the whole array again and convert the board[i][j]=='#'
+into board[i][j] = 'O' and the rest to 'X'
+simple.
+
+Also be done using Visited
+
+*/
+
 // TC O(N) + O(M) + O(N*M) = O(N*M)
 //     for +  for  + dfs
 // SC O(N*M)

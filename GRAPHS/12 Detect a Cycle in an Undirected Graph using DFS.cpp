@@ -7,6 +7,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// DFS
 // TC O(N + 2E) + O(N)
 // SC O(N) + O(N)
 bool dfs(int node, int parent, vector<vector<int>> &adj, vector<int> &vis)
@@ -16,7 +17,7 @@ bool dfs(int node, int parent, vector<vector<int>> &adj, vector<int> &vis)
     {
         if (!vis[adjacentNode]) // if the node is not visited then again call the function
         {
-            if (dfs(adjacentNode, node, adj, vis)) // if it give true return true
+            if (dfs(adjacentNode, node, adj, vis)) // if the DFS after all the calls gives true, return true.
                 return true;
         }
         else if (adjacentNode != parent) // if the node is visited and it is not parent it means some one touched it before. result -> cycle

@@ -8,9 +8,10 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// BFS
 // TC O(N + 2E) + O(N)
 // SC O(N)
-bool detect(int src, vector<vector<int>> &adj, vector<int> &vis)
+bool bfs(int src, vector<vector<int>> &adj, vector<int> &vis)
 {
     vis[src] = 1;            // mark the source as visited
     queue<pair<int, int>> q; // queue {node,parent}
@@ -43,7 +44,7 @@ bool isCycle(vector<vector<int>> &adj)
     {
         if (!vis[i]) // this is for the disconnected graph
         {
-            if (detect(i, adj, vis)) // if any cycle return true
+            if (bfs(i, adj, vis)) // if any cycle return true
                 return true;
         }
     }

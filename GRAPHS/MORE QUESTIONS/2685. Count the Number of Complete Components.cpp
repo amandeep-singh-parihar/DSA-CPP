@@ -8,6 +8,29 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+void bfs(int node, vector<vector<int>> &adj, vector<int> &vis, int &nodeCnt, int &edgeCnt)
+{
+
+    queue<int> q;
+    q.push(node);
+    vis[node] = 1;
+    while (!q.empty())
+    {
+        int curr = q.front();
+        q.pop();
+        ++nodeCnt;
+        edgeCnt += adj[curr].size();
+        for (auto ngbr : adj[curr])
+        {
+            if (!vis[ngbr])
+            {
+                vis[ngbr] = 1;
+                q.push(ngbr);
+            }
+        }
+    }
+}
+
 void dfs(int node, vector<vector<int>> &adj, vector<int> &vis, int &nodeCnt, int &edgeCnt)
 {
     vis[node] = 1;

@@ -58,6 +58,5 @@ int main()
         {'0', '0', '0', '1', '1'}};
 
     cout << "Number of islands: " << numIslands(grid) << endl;
-
     return 0;
 }

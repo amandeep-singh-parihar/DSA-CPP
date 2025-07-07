@@ -8,6 +8,9 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Why not DFS because we want to count the steps in the breadth like if I apply the DFS it go and count in one go and mark the elements according to the one element which may become conflict in the near future.
+
+// MultiSource BFS
 // TC O(N*M)
 // SC O(N*M)
 vector<vector<int>> updateMatrix(vector<vector<int>> &mat)
@@ -29,7 +32,7 @@ vector<vector<int>> updateMatrix(vector<vector<int>> &mat)
                 visited[i][j] = 1;   // mark all the 0s as visited in the visited matrix
                 q.push({{i, j}, 0}); // initially push all the 0s to the queue with there row and col
             }
-            else
+            else // although no need of this
             {
                 visited[i][j] = 0; // if the element is not 0 then in the visited matrix mark it as 0
             }
