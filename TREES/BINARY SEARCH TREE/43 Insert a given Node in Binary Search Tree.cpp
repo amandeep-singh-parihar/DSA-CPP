@@ -1,6 +1,7 @@
 // 701. Insert into a Binary Search Tree
 #include <bits/stdc++.h>
 using namespace std;
+// r1
 static const bool __boost = []()
 {
     cin.tie(nullptr);
