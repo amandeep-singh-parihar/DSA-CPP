@@ -94,6 +94,43 @@ bool isCycle(vector<vector<int>> &adj)
     return false;
 }
 
+bool ___dfs(int node, vector<int> &vis, vector<int> &pathVis, vector<vector<int>> &adj)
+{
+    vis[node] = 1;
+    pathVis[node] = 1;
+
+    for (auto it : adj[node])
+    {
+        if (!vis[it])
+        {
+            if (___dfs(it, vis, pathVis, adj))
+                return true;
+        }
+        else if (pathVis[it])
+        {
+            return true;
+        }
+    }
+    pathVis[node] = 0;
+    return false;
+}
+
+bool isCyclic(vector<vector<int>> &adj)
+{
+    int V = adj.size();
+    vector<int> vis(V, 0);
+    vector<int> pathVis(V, 0);
+    for (int i = 0; i < V; ++i)
+    {
+        if (!vis[i])
+        {
+            if (___dfs(i, vis, pathVis, adj))
+                return true;
+        }
+    }
+    return false;
+}
+
 int main()
 {
 

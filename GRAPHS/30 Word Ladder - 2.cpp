@@ -11,12 +11,12 @@ public:
         // Push all values of wordList into a set
         // to make deletion from it easier and in less time complexity.
         unordered_set<string> st(wordList.begin(), wordList.end());
-        
+
         // Creating a queue ds which stores the words in a sequence which is
         // required to reach the targetWord after successive transformations.
         queue<vector<string>> q;
 
-        // BFS traversal with pushing the new formed sequence in queue 
+        // BFS traversal with pushing the new formed sequence in queue
         // when after a transformation, a word is found in wordList.
 
         q.push({beginWord});
@@ -26,7 +26,7 @@ public:
         vector<string> usedOnLevel;
         usedOnLevel.push_back(beginWord);
         int level = 0;
-       
+
         // A vector to store the resultant transformation sequence.
         vector<vector<string>> ans;
         while (!q.empty())
@@ -61,7 +61,7 @@ public:
                 }
             }
             for (int i = 0; i < word.size(); i++)
-            {   
+            {
                 // Now, replace each character of ‘word’ with char
                 // from a-z then check if ‘word’ exists in wordList.
                 char original = word[i];
@@ -69,7 +69,7 @@ public:
                 {
                     word[i] = c;
                     if (st.count(word) > 0)
-                    { 
+                    {
                         // Check if the word is present in the wordList and
                         // push the word along with the new sequence in the queue.
                         vec.push_back(word);
@@ -105,7 +105,7 @@ int main()
     string startWord = "der", targetWord = "dfs";
     Solution obj;
     vector<vector<string>> ans = obj.findSequences(startWord, targetWord, wordList);
-    
+
     // If no transformation sequence is possible.
     if (ans.size() == 0)
         cout << -1 << endl;

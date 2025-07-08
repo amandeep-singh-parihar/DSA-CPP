@@ -1,3 +1,4 @@
+// 127. Word Ladder
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -32,6 +33,10 @@ int ladderLength(string beginWord, string endWord, vector<string> &wordList)
                 {
                     st.erase(word);
                     q.push({word, steps + 1});
+
+                    // also done the below
+                    // if (word == endWord)
+                    //     return steps + 1;
                 }
             }
             word[i] = original;
