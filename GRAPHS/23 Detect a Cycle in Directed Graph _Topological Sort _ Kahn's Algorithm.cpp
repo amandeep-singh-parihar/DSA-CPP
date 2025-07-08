@@ -8,11 +8,13 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Topo Sort (BFS)
 // TC O(V+E)
 // SC O(2N)
 bool isCyclic(vector<vector<int>> &adj)
 {
     int V = adj.size();
+    // calculate the indegree array
     vector<int> indegree(V, 0);
     for (int i = 0; i < V; ++i)
     {
@@ -23,6 +25,7 @@ bool isCyclic(vector<vector<int>> &adj)
     }
 
     queue<int> q;
+    // if the indegree is zero then push the node in the queue
     for (int i = 0; i < V; ++i)
     {
         if (indegree[i] == 0)
@@ -35,7 +38,7 @@ bool isCyclic(vector<vector<int>> &adj)
     {
         int node = q.front();
         q.pop();
-        ++cnt;
+        ++cnt; // everytime pop one element then count how many elements we traverse so far
         for (auto it : adj[node])
         {
             indegree[it]--;
@@ -43,8 +46,10 @@ bool isCyclic(vector<vector<int>> &adj)
                 q.push(it);
         }
     }
-    if (cnt == V)
+    if (cnt == V) // if You process all nodes it means no cycle. Because if there is a cycle then there must be nodes which indegree can never be zero it means we can't process them
+    {
         return false;
+    }
     return true;
 }
 

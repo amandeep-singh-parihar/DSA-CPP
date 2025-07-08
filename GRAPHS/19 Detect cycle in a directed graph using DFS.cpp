@@ -9,6 +9,7 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// vis and pathvis concept
 bool dfs(int node, vector<vector<int>> &adj, vector<int> &vis, vector<int> &pathVis)
 {
     vis[node] = 1;     // mark the node as visited

@@ -7,6 +7,8 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Very similar to Course Schedule I
+// just here to return the sequence
 vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites)
 {
     vector<vector<int>> adj(numCourses);

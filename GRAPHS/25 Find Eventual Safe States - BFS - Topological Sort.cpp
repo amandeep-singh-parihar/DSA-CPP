@@ -21,7 +21,7 @@ vector<int> eventualSafeNodes(vector<vector<int>> &graph)
     {
         for (auto it : graph[i])
         {
-            adjRev[it].push_back(i);
+            adjRev[it].push_back(i); // here instead of using adjRev[i].push_back(it)
             indegree[i]++;
         }
     }

@@ -7,6 +7,15 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// Kahn's Algorithm
+// TC O(V+E)
+// SC O(V+E)
+// very simple appraoch
+// put the logic of kahn's algo
+// if there is any cycle then it is not possible to take any course before any
+// so after applying the algo if there cnt == numCourses it means all the nodes traversed
+// it means the person can take all the courses
+// but if it not happen then it means there is a cycle
 bool canFinish(int numCourses, vector<vector<int>> &prerequisites)
 {
     // creating the graph

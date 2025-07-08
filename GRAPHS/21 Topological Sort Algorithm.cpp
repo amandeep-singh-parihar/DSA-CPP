@@ -25,6 +25,7 @@ void dfs(int node, vector<int> &vis, vector<int> &ans, vector<vector<int>> &adj)
 
 vector<int> topologicalSort(vector<vector<int>> &adj)
 {
+    // if the adjacency list is not given then first convert it into adjacency list
     int V = adj.size();
     vector<int> vis(V, 0);
     vector<int> ans;
