@@ -1,4 +1,4 @@
-// Minimum Multiplications to reach End
+// Minimum Multiplications to reach End GFG
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -10,6 +10,8 @@ static const bool __boost = []()
 
 // TC O(1e5*N) N->arr.size()
 // SC O(1e9 + q.size())
+// Each number (from 0 to 99999) is considered a node.
+// An edge exists from u to v if v = (u * arr[i]) % 100000.
 int minimumMultiplications(vector<int> &arr, int start, int end)
 {
     if (start == end)

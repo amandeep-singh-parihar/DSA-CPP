@@ -13,7 +13,7 @@ vector<int> dijkstra(vector<vector<pair<int, int>>> &adj, int src)
 {
     int V = adj.size();
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    vector<int> dist(V, 1e9); // created a dist array with initila value as 10^9
+    vector<int> dist(V, 1e9); // created a dist array with initilize value as 10^9
 
     dist[src] = 0;      // mark the source as 0
     pq.push({0, src});  // push in the min-heap with {dist=0,src}

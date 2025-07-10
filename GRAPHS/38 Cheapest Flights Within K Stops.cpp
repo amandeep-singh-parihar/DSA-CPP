@@ -21,6 +21,7 @@ int findCheapestPrice(int n, vector<vector<int>> &flights, int src, int dst,
     queue<pair<int, pair<int, int>>> q;
     q.push({0, {src, 0}});
     vector<int> dist(n, 1e9);
+    dist[src] = 0;
 
     while (!q.empty())
     {

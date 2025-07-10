@@ -8,6 +8,8 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// TC O(8*n*n)
+// Sc O(n*n)
 int shortestPathBinaryMatrix(vector<vector<int>> &grid)
 {
     if (grid[0][0] != 0)

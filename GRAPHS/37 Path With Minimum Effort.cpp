@@ -47,6 +47,8 @@ int minimumEffortPath(vector<vector<int>> &h)
             if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m)
             {
                 int newEffort = max(diff, abs(h[row][col] - h[nrow][ncol]));
+                // because You have to answer the max effort in the path
+                // and then return minimum effort of all the paths
                 if (newEffort < dist[nrow][ncol])
                 {
                     dist[nrow][ncol] = newEffort;

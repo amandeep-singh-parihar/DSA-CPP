@@ -43,13 +43,16 @@ vector<int> shortestPath(int V, int E, vector<vector<int>> &edges)
     // topo sort TC O(V+E)
     vector<int> vis(V, 0);
     stack<int> st;
-    for (int i = 0; i < V; ++i)
-    {
-        if (!vis[i])
-        {
-            topoSort(i, adj, vis, st);
-        }
-    }
+    // for (int i = 0; i < V; ++i)
+    // {
+    //     if (!vis[i])
+    //     {
+    //         topoSort(i, adj, vis, st);
+    //     }
+    // }
+    // no need of the run a topo sort on the whole graph as we want the distance from the src
+    topoSort(0, adj, vis, st);
+    // just start from the src if it is not connected it will not go the there
 
     // the distance thing
     vector<int> dist(V, 1e9);
@@ -66,6 +69,7 @@ vector<int> shortestPath(int V, int E, vector<vector<int>> &edges)
             int v = it.first;
             int wt = it.second;
 
+            // relax the edges
             if (dist[node] + wt < dist[v])
             {
                 dist[v] = dist[node] + wt;
@@ -86,6 +90,25 @@ vector<int> shortestPath(int V, int E, vector<vector<int>> &edges)
 
 int main()
 {
+    time_t start, end;
+    int V = 6, E = 7;
+    vector<vector<int>> edges = {{0, 1, 2},
+                                 {0, 4, 1},
+                                 {4, 5, 4},
+                                 {4, 2, 2},
+                                 {1, 2, 3},
+                                 {2, 3, 6},
+                                 {5, 3, 1}};
+    time(&start);
+    vector<int> ans = shortestPath(V, E, edges);
+    time(&end);
+    double time_taken = double(end - start);
+    cout << "Time take by Program is : " << fixed << time_taken << setprecision(5) << "sec" << endl;
+    for (auto it : ans)
+    {
+        cout << it << " ";
+    }
 
+    cout << endl;
     return 0;
 }

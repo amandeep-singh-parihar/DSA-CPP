@@ -1,3 +1,4 @@
+// 743. Network Delay Time
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -19,7 +20,7 @@ int networkDelayTime(vector<vector<int>> &times, int n, int k)
     priority_queue<pair<int, int>, vector<pair<int, int>>,
                    greater<pair<int, int>>>
         pq;
-    pq.push({0, k});
+    pq.push({0, k}); // {time,node}
     vector<int> dist(n + 1, 1e9);
     dist[k] = 0;
 

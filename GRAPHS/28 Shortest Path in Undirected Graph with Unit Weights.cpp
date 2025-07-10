@@ -7,9 +7,9 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
+// BFS
 // TC O(V+E)
 // SC O(V)
-
 vector<int> shortestPath(vector<vector<int>> &adj, int src)
 {
     int V = adj.size();       // take the number of vertices

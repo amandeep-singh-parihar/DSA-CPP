@@ -30,7 +30,7 @@ vector<int> shortestPath(int n, int m, vector<vector<int>> &edges)
     dist[1] = 0;        // mark the distance of 1(src) as 0
     while (!pq.empty()) // till the min heap is not empty
     {
-        int dis = pq.top().first;   
+        int dis = pq.top().first;
         int node = pq.top().second;
         pq.pop();
 
