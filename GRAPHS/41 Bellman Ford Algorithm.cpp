@@ -1,3 +1,4 @@
+// Bellman Ford
 #include <bits/stdc++.h>
 using namespace std;
 static const bool __boost = []()
@@ -11,9 +12,9 @@ vector<int> bellmanFord(int V, vector<vector<int>> &edges, int src)
 {
     vector<int> dist(V, 1e8);
     dist[src] = 0;
-    for (int i = 0; i < V - 1; ++i)
+    for (int i = 0; i < V - 1; ++i) // for V - 1 vertices
     {
-        for (auto it : edges)
+        for (auto it : edges) // You will pick it
         {
             int u = it[0];
             int v = it[1];

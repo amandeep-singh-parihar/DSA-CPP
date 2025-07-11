@@ -33,6 +33,11 @@ void shortestDistance(vector<vector<int>> &matrix)
         }
     }
 
+    // If want to check the negative cycle
+    // for(int i = 0;i<n;++i){
+    //     if(matrix[i][i]<0) cout<<"Negative cycle";
+    // }
+
     for (int i = 0; i < n; ++i)
     {
         for (int j = 0; j < n; ++j)
