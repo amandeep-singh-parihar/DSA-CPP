@@ -8,14 +8,14 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-// Revision 2
+// Revision 3
 
 // Memoization
 // TC O(N)
 // SC O(N) + O(N)
 int robHelper(int idx, vector<int> &nums, vector<int> &dp)
 {
-    if (idx == 0)
+    if (idx == 0) // if the idx reach 0 it means You haven't pick the idx=1 so just pick this for the max
         return nums[idx];
     if (idx < 0)
         return 0;
@@ -62,7 +62,7 @@ int _rob(vector<int> &nums)
     return dp[n - 1];
 }
 
-// Space Optimizatino
+// Space Optimization
 // TC O(N)
 // SC O(1)
 int __rob(vector<int> &nums)
@@ -72,13 +72,12 @@ int __rob(vector<int> &nums)
     if (n == 1)
         return nums[0];
 
-    vector<int> dp(n + 1, 0);
     int prev2 = nums[0];
     int prev1 = max(nums[0], nums[1]);
     for (int i = 2; i < n; ++i)
     {
         int take = nums[i] + prev2;
-        int notTake = prev1;
+        int notTake = 0 + prev1;
         int curr = max(take, notTake);
         prev2 = prev1;
         prev1 = curr;

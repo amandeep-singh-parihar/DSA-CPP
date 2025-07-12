@@ -8,29 +8,29 @@ static const bool __boost = []()
     return ios_base::sync_with_stdio(false);
 }();
 
-// Revision 2
+// Revision 3
 
 // Memoization
 // TC O(N*k)
 // SC O(N) + O(N)
-int helper(int idx, vector<int> &arr, int k, vector<int> &dp)
+int helper(int i, vector<int> &arr, int k, vector<int> &dp)
 {
-    if (idx == 0)
+    if (i == 0)
         return 0;
 
-    if (dp[idx] != -1)
-        return dp[idx];
+    if (dp[i] != -1)
+        return dp[i];
 
     int mini = INT_MAX;
-    for (int i = 1; i <= k; ++i)
+    for (int j = 1; j <= k; ++j)
     {
-        if (idx - i >= 0)
+        if (i - j >= 0)
         {
-            int jump = helper(idx - i, arr, k, dp) + abs(arr[idx] - arr[idx - i]);
+            int jump = helper(i - j, arr, k, dp) + abs(arr[i] - arr[i - j]);
             mini = min(mini, jump);
         }
     }
-    return dp[idx] = mini;
+    return dp[i] = mini;
 }
 
 int minimizeCost(int k, vector<int> &arr)
@@ -45,9 +45,9 @@ int minimizeCost(int k, vector<int> &arr)
 // SC O(N)
 int solve(int k, vector<int> &arr, vector<int> &dp)
 {
+    int n = arr.size();
     dp[0] = 0;
-
-    for (int i = 1; i < arr.size(); ++i)
+    for (int i = 1; i < n; ++i)
     {
         int minSteps = INT_MAX;
         for (int j = 1; j <= k; ++j)
@@ -61,7 +61,7 @@ int solve(int k, vector<int> &arr, vector<int> &dp)
         }
         dp[i] = minSteps;
     }
-    return dp[arr.size() - 1];
+    return dp[n - 1];
 }
 int _minimizeCost(int k, vector<int> &arr)
 {
