@@ -51,11 +51,12 @@ int _rob(vector<int> &nums)
     vector<int> dp(n + 1, 0);
 
     dp[0] = nums[0];
-    dp[1] = max(nums[0], nums[1]);
-    for (int i = 2; i < n; ++i)
+    for (int i = 1; i < n; ++i)
     {
-        int take = nums[i] + dp[i - 2];
-        int notTake = dp[i - 1];
+        int take = nums[i];
+        if (i > 1)
+            take += dp[i - 2];
+        int notTake = 0 + dp[i - 1];
         dp[i] = max(take, notTake);
     }
 
@@ -72,11 +73,13 @@ int __rob(vector<int> &nums)
     if (n == 1)
         return nums[0];
 
-    int prev2 = nums[0];
-    int prev1 = max(nums[0], nums[1]);
-    for (int i = 2; i < n; ++i)
+    int prev1 = nums[0];
+    int prev2 = 0;
+    for (int i = 1; i < n; ++i)
     {
-        int take = nums[i] + prev2;
+        int take = nums[i];
+        if (i > 1)
+            take += prev2;
         int notTake = 0 + prev1;
         int curr = max(take, notTake);
         prev2 = prev1;
